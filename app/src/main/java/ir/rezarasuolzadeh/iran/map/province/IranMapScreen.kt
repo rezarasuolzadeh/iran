@@ -1,6 +1,7 @@
-package ir.rezarasuolzadeh.iran.jadid
+package ir.rezarasuolzadeh.iran.map.province
 
 import android.graphics.Matrix
+import android.graphics.Path
 import android.graphics.RectF
 import android.graphics.Region
 import androidx.compose.foundation.Canvas
@@ -24,13 +25,13 @@ import ir.rezarasuolzadeh.iran.model.ProvinceGeometryModel
 import ir.rezarasuolzadeh.iran.model.ProvinceInfoModel
 
 @Composable
-private fun rememberRawProvincePaths(): List<Pair<ProvinceInfoModel, android.graphics.Path>> = remember {
+private fun rememberRawProvincePaths(): List<Pair<ProvinceInfoModel, Path>> = remember {
     iranProvinces.map { province -> province to PathParser.createPathFromPathData(province.pathData) }
 }
 
 @Composable
 private fun rememberScaledGeometries(
-    rawPaths: List<Pair<ProvinceInfoModel, android.graphics.Path>>,
+    rawPaths: List<Pair<ProvinceInfoModel, Path>>,
     canvasSize: IntSize,
 ): List<ProvinceGeometryModel> = remember(canvasSize, rawPaths) {
     if (canvasSize.width == 0 || canvasSize.height == 0) return@remember emptyList()
@@ -42,7 +43,7 @@ private fun rememberScaledGeometries(
     }
 
     rawPaths.map { (province, androidPath) ->
-        val transformed = android.graphics.Path(androidPath).apply { transform(matrix) }
+        val transformed = Path(androidPath).apply { transform(matrix) }
         val bounds = RectF()
         transformed.computeBounds(bounds, true)
         val region = Region().apply {

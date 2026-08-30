@@ -8,8 +8,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
-import ir.rezarasuolzadeh.iran.jadid.IranMap
+import ir.rezarasuolzadeh.iran.screen.CountyScreen
+import ir.rezarasuolzadeh.iran.screen.ProvinceScreen
 import ir.rezarasuolzadeh.iran.ui.theme.IranTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,15 +18,17 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            var selectedProvince by remember { mutableStateOf<String?>(null) }
             IranTheme {
-                IranMap(
-                    modifier = Modifier,
-                    selectedProvinceId = selectedProvince,
-                    onProvinceSelected = { selectedProvinceId ->
-                        selectedProvince = selectedProvinceId
-                    }
-                )
+                var selectedProvinceId by remember { mutableStateOf<String?>(value = null) }
+                if (selectedProvinceId == null) {
+                    ProvinceScreen(
+                        onSelectedProvince = { id ->
+                            selectedProvinceId = id
+                        }
+                    )
+                } else {
+                    CountyScreen(provinceId = selectedProvinceId.orEmpty())
+                }
             }
         }
     }

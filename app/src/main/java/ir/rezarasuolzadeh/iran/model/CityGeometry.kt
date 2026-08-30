@@ -3,8 +3,8 @@ package ir.rezarasuolzadeh.iran.model
 import android.graphics.Region
 import androidx.compose.ui.graphics.Path
 
-data class ProvinceGeometryModel(
-    val province: ProvinceInfoModel,
+class CityGeometry(
+    val city: City,
     val drawPath: Path,
-    val hitRegion: Region
+    val hitRegion: Region,
 )

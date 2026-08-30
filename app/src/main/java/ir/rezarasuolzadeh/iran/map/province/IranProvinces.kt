@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran.jadid
+package ir.rezarasuolzadeh.iran.map.province
 
 import ir.rezarasuolzadeh.iran.model.ProvinceInfoModel
 
