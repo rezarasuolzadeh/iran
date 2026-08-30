@@ -28,6 +28,7 @@ import ir.rezarasuolzadeh.iran.model.CityGeometry
 fun ProvinceCityMap(
     provinceId: String,
     selectedCityId: String?,
+    selectedCityName: (String?) -> Unit,
     onCitySelected: (String?) -> Unit,
     modifier: Modifier = Modifier,
     defaultColor: Color = Color(0xFFB0BEC5),
@@ -101,6 +102,10 @@ fun ProvinceCityMap(
                         geometry.city.isSelectable &&
                                 geometry.hitRegion.contains(offset.x.toInt(), offset.y.toInt())
                     } ?: return@detectTapGestures
+
+                    selectedCityName(
+                        if (tapped.city.id == selectedCityId) null else tapped.city.nameFa,
+                    )
 
                     onCitySelected(
                         if (tapped.city.id == selectedCityId) null else tapped.city.id,

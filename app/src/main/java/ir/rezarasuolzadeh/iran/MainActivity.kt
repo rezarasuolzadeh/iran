@@ -32,10 +32,22 @@ class MainActivity : ComponentActivity() {
                     ProvinceScreen(
                         onSelectedProvince = { id ->
                             selectedProvinceId = id
+                        },
+                        onBackPressed = {
+                            selectedProvinceId = null
+                            finish()
                         }
                     )
                 } else {
-                    CountyScreen(provinceId = selectedProvinceId.orEmpty())
+                    CountyScreen(
+                        provinceId = selectedProvinceId.orEmpty(),
+                        onSelectedCounty = {
+                            selectedProvinceId = null
+                        },
+                        onBackPressed = {
+                            selectedProvinceId = null
+                        }
+                    )
                 }
             }
         }

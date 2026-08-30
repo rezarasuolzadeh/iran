@@ -1,5 +1,6 @@
 package ir.rezarasuolzadeh.iran.screen
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -40,9 +41,17 @@ import ir.rezarasuolzadeh.iran.R
 import ir.rezarasuolzadeh.iran.map.province.IranMap
 
 @Composable
-fun ProvinceScreen(onSelectedProvince: (id: String?) -> Unit) {
+fun ProvinceScreen(
+    onSelectedProvince: (id: String?) -> Unit,
+    onBackPressed: () -> Unit
+) {
     var selectedProvince by remember { mutableStateOf<String?>(value = null) }
     var selectedProvinceName by remember { mutableStateOf<String?>(value = null) }
+
+    BackHandler {
+        onBackPressed()
+    }
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -58,7 +67,10 @@ fun ProvinceScreen(onSelectedProvince: (id: String?) -> Unit) {
             elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
             colors = CardDefaults.cardColors(
                 containerColor = Color.White
-            )
+            ),
+            onClick = {
+                onBackPressed()
+            }
         ) {
             Box(
                 modifier = Modifier
@@ -178,6 +190,7 @@ fun ProvinceScreen(onSelectedProvince: (id: String?) -> Unit) {
 @Composable
 fun ProvinceScreenPreview() {
     ProvinceScreen(
-        onSelectedProvince = {}
+        onSelectedProvince = {},
+        onBackPressed = {}
     )
 }
