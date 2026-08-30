@@ -6,6 +6,7 @@ import android.graphics.Region
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -90,7 +91,7 @@ fun ProvinceCityMap(
 
     Canvas(
         modifier = modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .aspectRatio(province.width / province.height)
             .onSizeChanged { canvasSize = it }
             .pointerInput(geometries) {

@@ -7,6 +7,7 @@ import android.graphics.Region
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -68,6 +69,7 @@ private fun rememberScaledGeometries(
 @Composable
 fun IranMap(
     selectedProvinceId: String?,
+    selectedProvinceName: (String?) -> Unit,
     onProvinceSelected: (String?) -> Unit,
     modifier: Modifier = Modifier,
     defaultColor: Color = Color(0xFFB0BEC5),
@@ -81,7 +83,7 @@ fun IranMap(
 
     Canvas(
         modifier = modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .aspectRatio(IRAN_MAP_VIEWBOX_WIDTH / IRAN_MAP_VIEWBOX_HEIGHT)
             .onSizeChanged { canvasSize = it }
             .pointerInput(geometries) {
@@ -89,6 +91,10 @@ fun IranMap(
                     val tapped = geometries.firstOrNull { geometry ->
                         geometry.province.isSelectable && geometry.hitRegion.contains(offset.x.toInt(), offset.y.toInt())
                     } ?: return@detectTapGestures
+
+                    selectedProvinceName(
+                        if (tapped.province.id == selectedProvinceId) null else tapped.province.nameFa
+                    )
 
                     onProvinceSelected(
                         if (tapped.province.id == selectedProvinceId) null else tapped.province.id
