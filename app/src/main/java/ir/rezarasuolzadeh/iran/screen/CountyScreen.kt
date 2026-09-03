@@ -88,6 +88,34 @@ fun CountyScreen(
                 )
             }
         }
+        Card(
+            modifier = Modifier
+                .padding(top = 48.dp, end = 18.dp)
+                .size(size = 40.dp)
+                .align(alignment = Alignment.TopEnd)
+                .clickable(onClick = {}),
+            shape = CircleShape,
+            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = Color.White
+            ),
+            onClick = {
+                // nothing to do yet
+            }
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(all = 10.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_github),
+                    contentDescription = "Back",
+                    tint = Color(0xFF333333)
+                )
+            }
+        }
         Column(
             modifier = Modifier
                 .padding(top = 96.dp)
