@@ -30,6 +30,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -39,6 +40,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ir.rezarasuolzadeh.iran.R
+import ir.rezarasuolzadeh.iran.extensions.openGithubRepository
 import ir.rezarasuolzadeh.iran.map.county.ProvinceCityMap
 import ir.rezarasuolzadeh.iran.map.province.IranMap
 
@@ -48,6 +50,7 @@ fun CountyScreen(
     onSelectedCounty: (String) -> Unit,
     onBackPressed: () -> Unit
 ) {
+    val context = LocalContext.current
     val selectedCityByProvince = remember { mutableStateMapOf<String, String?>() }
     val selectedCityId = selectedCityByProvince[provinceId]
     var selectedCityName by remember { mutableStateOf<String?>(value = null) }
@@ -100,7 +103,7 @@ fun CountyScreen(
                 containerColor = Color.White
             ),
             onClick = {
-                // nothing to do yet
+                context.openGithubRepository()
             }
         ) {
             Box(
