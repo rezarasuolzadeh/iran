@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran.map.county
+package ir.rezarasuolzadeh.iran.components
 
 import android.graphics.Matrix
 import android.graphics.RectF
@@ -7,7 +7,6 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -22,10 +21,12 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.IntSize
 import androidx.core.graphics.PathParser
+import ir.rezarasuolzadeh.iran.constant.citiesOf
+import ir.rezarasuolzadeh.iran.constant.provinceInfo
 import ir.rezarasuolzadeh.iran.model.CityGeometry
 
 @Composable
-fun ProvinceCityMap(
+fun CountiesMap(
     provinceId: String,
     selectedCityId: String?,
     selectedCityName: (String?) -> Unit,

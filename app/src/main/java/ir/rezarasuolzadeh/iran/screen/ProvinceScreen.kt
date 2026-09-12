@@ -40,7 +40,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ir.rezarasuolzadeh.iran.R
 import ir.rezarasuolzadeh.iran.extensions.openGithubRepository
-import ir.rezarasuolzadeh.iran.map.province.IranMap
+import ir.rezarasuolzadeh.iran.components.ProvincesMap
 
 @Composable
 fun ProvinceScreen(
@@ -140,7 +140,7 @@ fun ProvinceScreen(
                 )
             )
         }
-        IranMap(
+        ProvincesMap(
             selectedProvinceId = selectedProvince,
             selectedProvinceName = { name ->
                 selectedProvinceName = name

@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran.map.province
+package ir.rezarasuolzadeh.iran.components
 
 import android.graphics.Matrix
 import android.graphics.Path
@@ -8,7 +8,6 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -26,6 +25,7 @@ import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_HEIGHT
 import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_MIN_X
 import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_MIN_Y
 import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_WIDTH
+import ir.rezarasuolzadeh.iran.constant.iranProvinces
 import ir.rezarasuolzadeh.iran.model.ProvinceGeometryModel
 import ir.rezarasuolzadeh.iran.model.ProvinceInfoModel
 
@@ -71,7 +71,7 @@ private fun rememberScaledGeometries(
 }
 
 @Composable
-fun IranMap(
+fun ProvincesMap(
     selectedProvinceId: String?,
     selectedProvinceName: (String?) -> Unit,
     onProvinceSelected: (String?) -> Unit,

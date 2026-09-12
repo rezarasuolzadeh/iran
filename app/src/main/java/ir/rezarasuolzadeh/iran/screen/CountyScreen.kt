@@ -41,8 +41,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ir.rezarasuolzadeh.iran.R
 import ir.rezarasuolzadeh.iran.extensions.openGithubRepository
-import ir.rezarasuolzadeh.iran.map.county.ProvinceCityMap
-import ir.rezarasuolzadeh.iran.map.province.IranMap
+import ir.rezarasuolzadeh.iran.components.CountiesMap
 
 @Composable
 fun CountyScreen(
@@ -143,7 +142,7 @@ fun CountyScreen(
                 )
             )
         }
-        ProvinceCityMap(
+        CountiesMap(
             modifier = Modifier
                 .run { if (provinceId == "SistanAndBaluchestan" || provinceId == "AzerbaijanWest") size(300.dp) else if (provinceId == "Ardabil") size(200.dp) else fillMaxSize() }
                 .align(alignment = Alignment.Center),
