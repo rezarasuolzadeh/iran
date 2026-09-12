@@ -2,12 +2,6 @@ package ir.rezarasuolzadeh.iran.map.province
 
 import ir.rezarasuolzadeh.iran.model.ProvinceInfoModel
 
-
-const val IRAN_MAP_VIEWBOX_MIN_X = 5.138f
-const val IRAN_MAP_VIEWBOX_MIN_Y = 16.445f
-const val IRAN_MAP_VIEWBOX_WIDTH = 590.138f
-const val IRAN_MAP_VIEWBOX_HEIGHT = 531f
-
 val iranProvinces: List<ProvinceInfoModel> = listOf(
     ProvinceInfoModel(
         id = "Alborz",

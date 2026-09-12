@@ -22,6 +22,10 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.IntSize
 import androidx.core.graphics.PathParser
+import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_HEIGHT
+import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_MIN_X
+import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_MIN_Y
+import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_WIDTH
 import ir.rezarasuolzadeh.iran.model.ProvinceGeometryModel
 import ir.rezarasuolzadeh.iran.model.ProvinceInfoModel
 
@@ -37,9 +41,9 @@ private fun rememberScaledGeometries(
 ): List<ProvinceGeometryModel> = remember(canvasSize, rawPaths) {
     if (canvasSize.width == 0 || canvasSize.height == 0) return@remember emptyList()
 
-    val scale = canvasSize.width / IRAN_MAP_VIEWBOX_WIDTH
+    val scale = canvasSize.width / IRAN_MAP_VIEW_BOX_WIDTH
     val matrix = Matrix().apply {
-        setTranslate(-IRAN_MAP_VIEWBOX_MIN_X, -IRAN_MAP_VIEWBOX_MIN_Y)
+        setTranslate(-IRAN_MAP_VIEW_BOX_MIN_X, -IRAN_MAP_VIEW_BOX_MIN_Y)
         postScale(scale, scale)
     }
 
@@ -84,7 +88,7 @@ fun IranMap(
     Canvas(
         modifier = modifier
             .fillMaxSize()
-            .aspectRatio(IRAN_MAP_VIEWBOX_WIDTH / IRAN_MAP_VIEWBOX_HEIGHT)
+            .aspectRatio(IRAN_MAP_VIEW_BOX_WIDTH / IRAN_MAP_VIEW_BOX_HEIGHT)
             .onSizeChanged { canvasSize = it }
             .pointerInput(geometries) {
                 detectTapGestures { offset ->
