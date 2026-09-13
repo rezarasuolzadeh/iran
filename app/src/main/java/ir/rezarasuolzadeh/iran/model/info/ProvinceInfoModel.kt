@@ -1,8 +1,10 @@
-package ir.rezarasuolzadeh.iran.model
+package ir.rezarasuolzadeh.iran.model.info
 
-data class ProvinceInfo(
+data class ProvinceInfoModel(
     val id: String,
     val nameFa: String,
+    val isSelectable: Boolean,
+    val pathData: String,
     val borderPathData: String,
     val minX: Float,
     val minY: Float,

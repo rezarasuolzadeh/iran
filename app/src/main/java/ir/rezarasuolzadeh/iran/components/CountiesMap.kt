@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.IntSize
 import androidx.core.graphics.PathParser
 import ir.rezarasuolzadeh.iran.constant.citiesOf
 import ir.rezarasuolzadeh.iran.constant.provinceInfo
-import ir.rezarasuolzadeh.iran.model.CityGeometry
+import ir.rezarasuolzadeh.iran.model.geometry.CountyGeometryModel
 
 @Composable
 fun CountiesMap(
@@ -52,7 +52,7 @@ fun CountiesMap(
 
     data class Geometries(
         val border: Path,
-        val cityGeometries: List<CityGeometry>,
+        val cityGeometries: List<CountyGeometryModel>,
     )
 
     val geometries = remember(provinceId, canvasSize) {
@@ -85,7 +85,7 @@ fun CountiesMap(
                     )
                 )
             }
-            CityGeometry(city = city, drawPath = transformed.asComposePath(), hitRegion = region)
+            CountyGeometryModel(county = city, drawPath = transformed.asComposePath(), hitRegion = region)
         }
 
         Geometries(border = border.asComposePath(), cityGeometries = cityGeoms)
@@ -100,16 +100,16 @@ fun CountiesMap(
                 val geoms = geometries ?: return@pointerInput
                 detectTapGestures { offset ->
                     val tapped = geoms.cityGeometries.firstOrNull { geometry ->
-                        geometry.city.isSelectable &&
+                        geometry.county.isSelectable &&
                                 geometry.hitRegion.contains(offset.x.toInt(), offset.y.toInt())
                     } ?: return@detectTapGestures
 
                     selectedCityName(
-                        if (tapped.city.id == selectedCityId) null else tapped.city.nameFa,
+                        if (tapped.county.id == selectedCityId) null else tapped.county.nameFa,
                     )
 
                     onCitySelected(
-                        if (tapped.city.id == selectedCityId) null else tapped.city.id,
+                        if (tapped.county.id == selectedCityId) null else tapped.county.id,
                     )
                 }
             }
@@ -118,8 +118,8 @@ fun CountiesMap(
 
         geoms.cityGeometries.forEach { geometry ->
             val fillColor = when {
-                !geometry.city.isSelectable -> nonSelectableColor
-                geometry.city.id == selectedCityId -> selectedColor
+                !geometry.county.isSelectable -> nonSelectableColor
+                geometry.county.id == selectedCityId -> selectedColor
                 else -> defaultColor
             }
             drawPath(path = geometry.drawPath, color = fillColor)

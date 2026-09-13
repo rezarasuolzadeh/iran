@@ -26,8 +26,8 @@ import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_MIN_X
 import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_MIN_Y
 import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_WIDTH
 import ir.rezarasuolzadeh.iran.constant.iranProvinces
-import ir.rezarasuolzadeh.iran.model.ProvinceGeometryModel
-import ir.rezarasuolzadeh.iran.model.ProvinceInfoModel
+import ir.rezarasuolzadeh.iran.model.geometry.ProvinceGeometryModel
+import ir.rezarasuolzadeh.iran.model.info.ProvinceInfoModel
 
 @Composable
 private fun rememberRawProvincePaths(): List<Pair<ProvinceInfoModel, Path>> = remember {
