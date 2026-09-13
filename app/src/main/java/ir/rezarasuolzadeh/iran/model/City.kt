@@ -5,5 +5,5 @@ data class City(
     val provinceId: String,
     val nameFa: String,
     val pathData: String,
-    val isSelectable: Boolean = true
+    val isSelectable: Boolean
 )
