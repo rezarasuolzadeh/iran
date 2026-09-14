@@ -21,8 +21,8 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.IntSize
 import androidx.core.graphics.PathParser
-import ir.rezarasuolzadeh.iran.constant.citiesOf
-import ir.rezarasuolzadeh.iran.constant.provinceInfo
+import ir.rezarasuolzadeh.iran.utils.getCounties
+import ir.rezarasuolzadeh.iran.utils.getProvinceInfo
 import ir.rezarasuolzadeh.iran.model.geometry.CountyGeometryModel
 
 @Composable
@@ -38,26 +38,35 @@ fun CountiesMap(
     strokeColor: Color = Color(0xFF37474F),
     provinceBorderColor: Color = Color(0xFF212121)
 ) {
-    val province = remember(provinceId) { provinceInfo(provinceId) } ?: return
-    val cities = remember(provinceId) { citiesOf(provinceId) }
+    val province = remember(provinceId) {
+        getProvinceInfo(provinceId = provinceId)
+    } ?: return
+
+    val cities = remember(provinceId) {
+        getCounties(provinceId = provinceId)
+    }
 
     val rawBorderPath = remember(provinceId) {
         PathParser.createPathFromPathData(province.borderPathData)
     }
+
     val rawCityPaths = remember(provinceId) {
         cities.map { city -> city to PathParser.createPathFromPathData(city.pathData) }
     }
 
-    var canvasSize by remember(provinceId) { mutableStateOf(IntSize.Zero) }
+    var canvasSize by remember(provinceId) {
+        mutableStateOf(IntSize.Zero)
+    }
 
     data class Geometries(
         val border: Path,
-        val cityGeometries: List<CountyGeometryModel>,
+        val cityGeometries: List<CountyGeometryModel>
     )
 
     val geometries = remember(provinceId, canvasSize) {
-        if (canvasSize.width == 0 || canvasSize.height == 0) return@remember null
-
+        if (canvasSize.width == 0 || canvasSize.height == 0) {
+            return@remember null
+        }
         val padding = 0.04f
         val scale = canvasSize.width / (province.width * (1 + 2 * padding))
         val matrix = Matrix().apply {
@@ -67,9 +76,7 @@ fun CountiesMap(
             )
             postScale(scale, scale)
         }
-
         val border = android.graphics.Path(rawBorderPath).apply { transform(matrix) }
-
         val cityGeoms = rawCityPaths.map { (city, rawPath) ->
             val transformed = android.graphics.Path(rawPath).apply { transform(matrix) }
             val bounds = RectF()
@@ -87,7 +94,6 @@ fun CountiesMap(
             }
             CountyGeometryModel(county = city, drawPath = transformed.asComposePath(), hitRegion = region)
         }
-
         Geometries(border = border.asComposePath(), cityGeometries = cityGeoms)
     }
 
@@ -125,7 +131,6 @@ fun CountiesMap(
             drawPath(path = geometry.drawPath, color = fillColor)
             drawPath(path = geometry.drawPath, color = strokeColor, style = Stroke(width = 1.5f))
         }
-
         drawPath(path = geoms.border, color = provinceBorderColor, style = Stroke(width = 3f))
     }
 }

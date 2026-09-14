@@ -39,14 +39,14 @@ private fun rememberScaledGeometries(
     rawPaths: List<Pair<ProvinceInfoModel, Path>>,
     canvasSize: IntSize,
 ): List<ProvinceGeometryModel> = remember(canvasSize, rawPaths) {
-    if (canvasSize.width == 0 || canvasSize.height == 0) return@remember emptyList()
-
+    if (canvasSize.width == 0 || canvasSize.height == 0) {
+        return@remember emptyList()
+    }
     val scale = canvasSize.width / IRAN_MAP_VIEW_BOX_WIDTH
     val matrix = Matrix().apply {
         setTranslate(-IRAN_MAP_VIEW_BOX_MIN_X, -IRAN_MAP_VIEW_BOX_MIN_Y)
         postScale(scale, scale)
     }
-
     rawPaths.map { (province, androidPath) ->
         val transformed = Path(androidPath).apply { transform(matrix) }
         val bounds = RectF()
