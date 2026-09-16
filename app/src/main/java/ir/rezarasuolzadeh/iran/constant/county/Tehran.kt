@@ -2,7 +2,7 @@ package ir.rezarasuolzadeh.iran.constant.county
 
 import ir.rezarasuolzadeh.iran.model.info.CountyInfoModel
 
-val Tehran: List<CountyInfoModel> = listOf(
+val tehranCounties: List<CountyInfoModel> = listOf(
     CountyInfoModel(
         id = "Tehran_1",
         provinceId = "Tehran",

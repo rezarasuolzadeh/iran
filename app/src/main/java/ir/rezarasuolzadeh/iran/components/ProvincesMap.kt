@@ -25,7 +25,7 @@ import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_HEIGHT
 import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_MIN_X
 import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_MIN_Y
 import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_WIDTH
-import ir.rezarasuolzadeh.iran.constant.iranProvinces
+import ir.rezarasuolzadeh.iran.constant.iran.iranProvinces
 import ir.rezarasuolzadeh.iran.model.geometry.ProvinceGeometryModel
 import ir.rezarasuolzadeh.iran.model.info.ProvinceInfoModel
 
@@ -58,7 +58,7 @@ private fun rememberScaledGeometries(
                     bounds.left.toInt(),
                     bounds.top.toInt(),
                     bounds.right.toInt() + 1,
-                    bounds.bottom.toInt() + 1,
+                    bounds.bottom.toInt() + 1
                 )
             )
         }
@@ -79,7 +79,7 @@ fun ProvincesMap(
     defaultColor: Color = Color(0xFFB0BEC5),
     selectedColor: Color = Color(0xFF1E88E5),
     waterColor: Color = Color(0xFF90CAF9),
-    strokeColor: Color = Color(0xFF37474F),
+    strokeColor: Color = Color(0xFF37474F)
 ) {
     val rawPaths = rememberRawProvincePaths()
     var canvasSize by remember { mutableStateOf(value = IntSize.Zero) }
@@ -104,7 +104,7 @@ fun ProvincesMap(
                         if (tapped.province.id == selectedProvinceId) null else tapped.province.id
                     )
                 }
-            },
+            }
     ) {
         geometries.forEach { geometry ->
             val fillColor = when {

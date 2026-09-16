@@ -2,7 +2,7 @@ package ir.rezarasuolzadeh.iran.constant.county
 
 import ir.rezarasuolzadeh.iran.model.info.CountyInfoModel
 
-val Bushehr: List<CountyInfoModel> = listOf(
+val bushehrCounties: List<CountyInfoModel> = listOf(
     CountyInfoModel(
         id = "Bushehr_1",
         provinceId = "Bushehr",

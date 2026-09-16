@@ -2,7 +2,7 @@ package ir.rezarasuolzadeh.iran.constant.county
 
 import ir.rezarasuolzadeh.iran.model.info.CountyInfoModel
 
-val Markazi: List<CountyInfoModel> = listOf(
+val markaziCounties: List<CountyInfoModel> = listOf(
     CountyInfoModel(
         id = "Markazi_1",
         provinceId = "Markazi",

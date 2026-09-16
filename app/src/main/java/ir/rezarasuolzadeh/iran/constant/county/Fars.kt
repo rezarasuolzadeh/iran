@@ -2,7 +2,7 @@ package ir.rezarasuolzadeh.iran.constant.county
 
 import ir.rezarasuolzadeh.iran.model.info.CountyInfoModel
 
-val Fars: List<CountyInfoModel> = listOf(
+val farsCounties: List<CountyInfoModel> = listOf(
     CountyInfoModel(
         id = "Fars_1",
         provinceId = "Fars",

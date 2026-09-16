@@ -2,7 +2,7 @@ package ir.rezarasuolzadeh.iran.constant.county
 
 import ir.rezarasuolzadeh.iran.model.info.CountyInfoModel
 
-val Yazd: List<CountyInfoModel> = listOf(
+val yazdCounties: List<CountyInfoModel> = listOf(
     CountyInfoModel(
         id = "Yazd_1",
         provinceId = "Yazd",

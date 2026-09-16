@@ -72,7 +72,7 @@ fun CountiesMap(
         val matrix = Matrix().apply {
             setTranslate(
                 -province.minX + province.width * padding,
-                -province.minY + province.height * padding,
+                -province.minY + province.height * padding
             )
             postScale(scale, scale)
         }
@@ -111,11 +111,11 @@ fun CountiesMap(
                     } ?: return@detectTapGestures
 
                     selectedCityName(
-                        if (tapped.county.id == selectedCityId) null else tapped.county.nameFa,
+                        if (tapped.county.id == selectedCityId) null else tapped.county.nameFa
                     )
 
                     onCitySelected(
-                        if (tapped.county.id == selectedCityId) null else tapped.county.id,
+                        if (tapped.county.id == selectedCityId) null else tapped.county.id
                     )
                 }
             }

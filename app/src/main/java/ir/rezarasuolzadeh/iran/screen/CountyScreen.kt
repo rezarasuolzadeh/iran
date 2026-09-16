@@ -144,7 +144,7 @@ fun CountyScreen(
         }
         CountiesMap(
             modifier = Modifier
-                .run { if (provinceId == "SistanAndBaluchestan" || provinceId == "AzerbaijanWest") size(300.dp) else if (provinceId == "Ardabil") size(200.dp) else fillMaxSize() }
+                .run { if (provinceId == "SistanVaBaluchestan" || provinceId == "AzerbaijaneGharbi") size(300.dp) else if (provinceId == "Ardabil") size(200.dp) else fillMaxSize() }
                 .align(alignment = Alignment.Center),
             provinceId = provinceId,
             selectedCityId = selectedCityId,
