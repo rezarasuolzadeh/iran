@@ -24,6 +24,11 @@ import androidx.core.graphics.PathParser
 import ir.rezarasuolzadeh.iran.utils.getCounties
 import ir.rezarasuolzadeh.iran.utils.getProvinceInfo
 import ir.rezarasuolzadeh.iran.model.geometry.CountyGeometryModel
+import ir.rezarasuolzadeh.iran.ui.theme.MapInnerBorderColor
+import ir.rezarasuolzadeh.iran.ui.theme.MapDefaultColor
+import ir.rezarasuolzadeh.iran.ui.theme.MapOuterBorderColor
+import ir.rezarasuolzadeh.iran.ui.theme.MapSelectedColor
+import ir.rezarasuolzadeh.iran.ui.theme.MapWaterColor
 
 @Composable
 fun CountiesMap(
@@ -32,11 +37,11 @@ fun CountiesMap(
     selectedCityName: (String?) -> Unit,
     onCitySelected: (String?) -> Unit,
     modifier: Modifier = Modifier,
-    defaultColor: Color = Color(0xFFB0BEC5),
-    selectedColor: Color = Color(0xFF1E88E5),
-    nonSelectableColor: Color = Color(0xFF90CAF9),
-    strokeColor: Color = Color(0xFF37474F),
-    provinceBorderColor: Color = Color(0xFF212121)
+    defaultColor: Color = MapDefaultColor,
+    selectedColor: Color = MapSelectedColor,
+    nonSelectableColor: Color = MapWaterColor,
+    strokeColor: Color = MapInnerBorderColor,
+    provinceBorderColor: Color = MapOuterBorderColor
 ) {
     val province = remember(provinceId) {
         getProvinceInfo(provinceId = provinceId)

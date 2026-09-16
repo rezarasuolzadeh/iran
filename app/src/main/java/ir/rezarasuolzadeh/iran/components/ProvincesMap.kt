@@ -28,6 +28,10 @@ import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_WIDTH
 import ir.rezarasuolzadeh.iran.constant.iran.iranProvinces
 import ir.rezarasuolzadeh.iran.model.geometry.ProvinceGeometryModel
 import ir.rezarasuolzadeh.iran.model.info.ProvinceInfoModel
+import ir.rezarasuolzadeh.iran.ui.theme.MapDefaultColor
+import ir.rezarasuolzadeh.iran.ui.theme.MapInnerBorderColor
+import ir.rezarasuolzadeh.iran.ui.theme.MapSelectedColor
+import ir.rezarasuolzadeh.iran.ui.theme.MapWaterColor
 
 @Composable
 private fun rememberRawProvincePaths(): List<Pair<ProvinceInfoModel, Path>> = remember {
@@ -76,10 +80,10 @@ fun ProvincesMap(
     selectedProvinceName: (String?) -> Unit,
     onProvinceSelected: (String?) -> Unit,
     modifier: Modifier = Modifier,
-    defaultColor: Color = Color(0xFFB0BEC5),
-    selectedColor: Color = Color(0xFF1E88E5),
-    waterColor: Color = Color(0xFF90CAF9),
-    strokeColor: Color = Color(0xFF37474F)
+    defaultColor: Color = MapDefaultColor,
+    selectedColor: Color = MapSelectedColor,
+    waterColor: Color = MapWaterColor,
+    strokeColor: Color = MapInnerBorderColor
 ) {
     val rawPaths = rememberRawProvincePaths()
     var canvasSize by remember { mutableStateOf(value = IntSize.Zero) }

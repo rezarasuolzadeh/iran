@@ -27,7 +27,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.vectorResource
@@ -39,8 +38,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ir.rezarasuolzadeh.iran.R
-import ir.rezarasuolzadeh.iran.extensions.openGithubRepository
 import ir.rezarasuolzadeh.iran.components.ProvincesMap
+import ir.rezarasuolzadeh.iran.extensions.openGithubRepository
+import ir.rezarasuolzadeh.iran.ui.theme.Black
+import ir.rezarasuolzadeh.iran.ui.theme.DarkGray
+import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
+import ir.rezarasuolzadeh.iran.ui.theme.LightGray
+import ir.rezarasuolzadeh.iran.ui.theme.MediumBlue
+import ir.rezarasuolzadeh.iran.ui.theme.MediumGray
+import ir.rezarasuolzadeh.iran.ui.theme.White
 
 @Composable
 fun ProvinceScreen(
@@ -58,7 +64,7 @@ fun ProvinceScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color(0xFFE6EFFC))
+            .background(color = LightBlue)
     ) {
         Card(
             modifier = Modifier
@@ -69,7 +75,7 @@ fun ProvinceScreen(
             shape = CircleShape,
             elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color.White
+                containerColor = White
             ),
             onClick = {
                 onBackPressed()
@@ -83,8 +89,7 @@ fun ProvinceScreen(
             ) {
                 Icon(
                     imageVector = ImageVector.vectorResource(id = R.drawable.ic_back),
-                    contentDescription = "Back",
-                    tint = Color(0xFF333333)
+                    contentDescription = "Back"
                 )
             }
         }
@@ -97,7 +102,7 @@ fun ProvinceScreen(
             shape = CircleShape,
             elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color.White
+                containerColor = White
             ),
             onClick = {
                 context.openGithubRepository()
@@ -111,8 +116,7 @@ fun ProvinceScreen(
             ) {
                 Icon(
                     imageVector = ImageVector.vectorResource(id = R.drawable.ic_github),
-                    contentDescription = "Back",
-                    tint = Color(0xFF333333)
+                    contentDescription = "Back"
                 )
             }
         }
@@ -126,7 +130,7 @@ fun ProvinceScreen(
                 text = "انتخاب استان",
                 style = TextStyle(
                     fontFamily = FontFamily(Font(R.font.vazir_bold)),
-                    color = Color.Black,
+                    color = Black,
                     fontSize = 20.sp
                 )
             )
@@ -135,7 +139,7 @@ fun ProvinceScreen(
                 text = "لطفا استان مورد نظر خود را انتخاب نمایید",
                 style = TextStyle(
                     fontFamily = FontFamily(Font(R.font.vazir)),
-                    color = Color(0xFF5D5D5D),
+                    color = MediumGray,
                     fontSize = 12.sp
                 )
             )
@@ -157,7 +161,7 @@ fun ProvinceScreen(
             shape = RoundedCornerShape(size = 24.dp),
             elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color.White
+                containerColor = White
             )
         ) {
             Column(
@@ -170,7 +174,7 @@ fun ProvinceScreen(
                     text = "استان منتخب",
                     style = TextStyle(
                         fontFamily = FontFamily(Font(R.font.vazir_bold)),
-                        color = Color(0xFF575757),
+                        color = DarkGray,
                         fontSize = 12.sp
                     ),
                     textAlign = TextAlign.End
@@ -181,7 +185,7 @@ fun ProvinceScreen(
                     text = selectedProvinceName ?: "استانی انتخاب نشده است",
                     style = TextStyle(
                         fontFamily = FontFamily(Font(R.font.vazir_bold)),
-                        color = Color.Black,
+                        color = Black,
                         fontSize = 18.sp
                     ),
                     textAlign = TextAlign.End
@@ -193,10 +197,10 @@ fun ProvinceScreen(
                         .height(48.dp),
                     shape = RoundedCornerShape(size = 16.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF1578D9),
-                        contentColor = Color.White,
-                        disabledContainerColor = Color(0xFFB0BEC5),
-                        disabledContentColor = Color.White
+                        containerColor = MediumBlue,
+                        contentColor = White,
+                        disabledContainerColor = LightGray,
+                        disabledContentColor = White
                     ),
                     onClick = {
                         onSelectedProvince(selectedProvince)
@@ -207,7 +211,7 @@ fun ProvinceScreen(
                         text = "تایید استان",
                         style = TextStyle(
                             fontFamily = FontFamily(Font(R.font.vazir)),
-                            color = Color.White,
+                            color = White,
                             fontSize = 15.sp
                         )
                     )
