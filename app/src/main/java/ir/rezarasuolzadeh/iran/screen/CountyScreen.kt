@@ -30,6 +30,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -129,7 +130,7 @@ fun CountyScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "انتخاب شهرستان",
+                text = stringResource(id = R.string.select_county),
                 style = TextStyle(
                     fontFamily = FontFamily(Font(R.font.vazir_bold)),
                     color = Black,
@@ -138,7 +139,7 @@ fun CountyScreen(
             )
             Spacer(modifier = Modifier.height(height = 3.dp))
             Text(
-                text = "لطفا شهرستان مورد نظر خود را انتخاب نمایید",
+                text = stringResource(id = R.string.select_your_county_please),
                 style = TextStyle(
                     fontFamily = FontFamily(Font(R.font.vazir)),
                     color = MediumGray,
@@ -177,7 +178,7 @@ fun CountyScreen(
             ) {
                 Text(
                     modifier = Modifier.fillMaxWidth(),
-                    text = "شهرستان منتخب",
+                    text = stringResource(id = R.string.selected_county),
                     style = TextStyle(
                         fontFamily = FontFamily(Font(R.font.vazir_bold)),
                         color = DarkGray,
@@ -188,7 +189,7 @@ fun CountyScreen(
                 Spacer(modifier = Modifier.height(height = 8.dp))
                 Text(
                     modifier = Modifier.fillMaxWidth(),
-                    text = selectedCityName ?: "شهرستانی انتخاب نشده است",
+                    text = selectedCityName ?: stringResource(id = R.string.no_county_selected),
                     style = TextStyle(
                         fontFamily = FontFamily(Font(R.font.vazir_bold)),
                         color = Black,
@@ -214,7 +215,7 @@ fun CountyScreen(
                     enabled = selectedCityId != null
                 ) {
                     Text(
-                        text = "تایید شهرستان",
+                        text = stringResource(id = R.string.confirm_county),
                         style = TextStyle(
                             fontFamily = FontFamily(Font(R.font.vazir)),
                             color = White,

@@ -29,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -127,7 +128,7 @@ fun ProvinceScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "انتخاب استان",
+                text = stringResource(id = R.string.select_province),
                 style = TextStyle(
                     fontFamily = FontFamily(Font(R.font.vazir_bold)),
                     color = Black,
@@ -136,7 +137,7 @@ fun ProvinceScreen(
             )
             Spacer(modifier = Modifier.height(height = 3.dp))
             Text(
-                text = "لطفا استان مورد نظر خود را انتخاب نمایید",
+                text = stringResource(id = R.string.select_your_province_please),
                 style = TextStyle(
                     fontFamily = FontFamily(Font(R.font.vazir)),
                     color = MediumGray,
@@ -171,7 +172,7 @@ fun ProvinceScreen(
             ) {
                 Text(
                     modifier = Modifier.fillMaxWidth(),
-                    text = "استان منتخب",
+                    text = stringResource(id = R.string.selected_province),
                     style = TextStyle(
                         fontFamily = FontFamily(Font(R.font.vazir_bold)),
                         color = DarkGray,
@@ -182,7 +183,7 @@ fun ProvinceScreen(
                 Spacer(modifier = Modifier.height(height = 8.dp))
                 Text(
                     modifier = Modifier.fillMaxWidth(),
-                    text = selectedProvinceName ?: "استانی انتخاب نشده است",
+                    text = selectedProvinceName ?: stringResource(id = R.string.no_province_selected),
                     style = TextStyle(
                         fontFamily = FontFamily(Font(R.font.vazir_bold)),
                         color = Black,
@@ -208,7 +209,7 @@ fun ProvinceScreen(
                     enabled = selectedProvince != null
                 ) {
                     Text(
-                        text = "تایید استان",
+                        text = stringResource(id = R.string.confirm_province),
                         style = TextStyle(
                             fontFamily = FontFamily(Font(R.font.vazir)),
                             color = White,

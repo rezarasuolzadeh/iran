@@ -7,5 +7,5 @@ import ir.rezarasuolzadeh.iran.model.info.CountyInfoModel
 data class CountyGeometryModel(
     val county: CountyInfoModel,
     val drawPath: Path,
-    val hitRegion: Region,
+    val hitRegion: Region
 )

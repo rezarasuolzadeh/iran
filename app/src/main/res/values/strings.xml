@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Iran</string>
+    <string name="select_province">انتخاب استان</string>
+    <string name="select_county">انتخاب شهرستان</string>
+    <string name="no_province_selected">استانی انتخاب نشده است</string>
+    <string name="no_county_selected">شهرستانی انتخاب نشده است</string>
+    <string name="select_your_province_please">لطفا استان مورد نظر خود را انتخاب نمایید</string>
+    <string name="select_your_county_please">لطفا شهرستان مورد نظر خود را انتخاب نمایید</string>
+    <string name="selected_province">استان منتخب</string>
+    <string name="selected_county">شهرستان منتخب</string>
+    <string name="confirm_province">تایید استان</string>
+    <string name="confirm_county">تایید شهرستان</string>
 </resources>
