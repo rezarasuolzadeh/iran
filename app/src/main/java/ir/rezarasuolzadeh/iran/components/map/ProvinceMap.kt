@@ -82,7 +82,7 @@ private fun rememberScaledGeometries(
 }
 
 @Composable
-fun CountiesMap(
+fun ProvinceMap(
     provinceId: String,
     selectedCityId: String?,
     selectedCityName: (String?) -> Unit,

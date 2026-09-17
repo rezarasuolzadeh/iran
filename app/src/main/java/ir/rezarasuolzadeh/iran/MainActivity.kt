@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import ir.rezarasuolzadeh.iran.screen.CountyScreen
 import ir.rezarasuolzadeh.iran.screen.ProvinceScreen
+import ir.rezarasuolzadeh.iran.screen.IranScreen
 import ir.rezarasuolzadeh.iran.ui.theme.IranTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,26 +29,43 @@ class MainActivity : ComponentActivity() {
         setContent {
             IranTheme {
                 var selectedProvinceId by remember { mutableStateOf<String?>(value = null) }
-                if (selectedProvinceId == null) {
-                    ProvinceScreen(
-                        onSelectedProvince = { id ->
-                            selectedProvinceId = id
-                        },
-                        onBackPressed = {
-                            selectedProvinceId = null
-                            finish()
-                        }
-                    )
-                } else {
-                    CountyScreen(
-                        provinceId = selectedProvinceId.orEmpty(),
-                        onSelectedCounty = {
-                            selectedProvinceId = null
-                        },
-                        onBackPressed = {
-                            selectedProvinceId = null
-                        }
-                    )
+                var selectedCountyId by remember { mutableStateOf<String?>(value = null) }
+                when {
+                    selectedProvinceId == null && selectedCountyId == null -> {
+                        IranScreen(
+                            onSelectedProvince = { id ->
+                                selectedProvinceId = id
+                            },
+                            onBackPressed = {
+                                selectedProvinceId = null
+                                finish()
+                            }
+                        )
+                    }
+
+                    selectedProvinceId != null && selectedCountyId == null -> {
+                        ProvinceScreen(
+                            provinceId = selectedProvinceId.orEmpty(),
+                            onSelectedCounty = { id ->
+                                selectedCountyId = id
+                            },
+                            onBackPressed = {
+                                selectedProvinceId = null
+                                selectedCountyId = null
+                            }
+                        )
+                    }
+
+                    selectedProvinceId != null && selectedCountyId != null -> {
+                        CountyScreen(
+                            provinceId = selectedProvinceId.orEmpty(),
+                            countyId = selectedCountyId.orEmpty(),
+                            onBackPressed = {
+                                selectedProvinceId = null
+                                selectedCountyId = null
+                            }
+                        )
+                    }
                 }
             }
         }

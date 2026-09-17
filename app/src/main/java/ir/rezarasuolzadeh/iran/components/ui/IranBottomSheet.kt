@@ -22,9 +22,9 @@ import ir.rezarasuolzadeh.iran.ui.theme.Typography
 import ir.rezarasuolzadeh.iran.ui.theme.White
 
 @Composable
-fun ProvinceBottomSheet(
+fun IranBottomSheet(
     modifier: Modifier = Modifier,
-    countyName: String?,
+    provinceName: String?,
     isConfirmEnabled: Boolean,
     onConfirm: () -> Unit
 ) {
@@ -43,14 +43,14 @@ fun ProvinceBottomSheet(
         ) {
             Text(
                 modifier = Modifier.fillMaxWidth(),
-                text = stringResource(id = R.string.selected_county),
+                text = stringResource(id = R.string.selected_province),
                 style = Typography.bodySmall,
                 textAlign = TextAlign.End
             )
             Spacer(modifier = Modifier.height(height = 8.dp))
             Text(
                 modifier = Modifier.fillMaxWidth(),
-                text = countyName ?: stringResource(id = R.string.no_county_selected),
+                text = provinceName ?: stringResource(id = R.string.no_province_selected),
                 style = Typography.bodyLarge,
                 textAlign = TextAlign.End
             )
@@ -65,10 +65,10 @@ fun ProvinceBottomSheet(
 
 @Preview
 @Composable
-fun ProvinceBottomSheetPreview() {
-    ProvinceBottomSheet(
+fun IranBottomSheetPreview() {
+    IranBottomSheet(
         modifier = Modifier,
-        countyName = "اهواز",
+        provinceName = "قزوین",
         isConfirmEnabled = true,
         onConfirm = {}
     )

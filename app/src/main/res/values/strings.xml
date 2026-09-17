@@ -10,4 +10,6 @@
     <string name="selected_county">شهرستان منتخب</string>
     <string name="confirm_province">تایید استان</string>
     <string name="confirm_county">تایید شهرستان</string>
+    <string name="center_of_selected_county">مرکز شهرستان منتخب</string>
+    <string name="back">بازگشت</string>
 </resources>

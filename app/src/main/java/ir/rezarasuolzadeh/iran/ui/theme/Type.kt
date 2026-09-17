@@ -36,6 +36,7 @@ val Typography = Typography(
     bodyLarge = TextStyle(
         fontFamily = FontFamily(Font(R.font.vazir_bold)),
         fontWeight = FontWeight.Normal,
+        color = Black,
         fontSize = 18.sp
     )
 )

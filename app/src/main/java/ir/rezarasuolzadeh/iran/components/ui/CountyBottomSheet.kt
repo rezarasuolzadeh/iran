@@ -1,3 +1,5 @@
+@file:JvmName("CountyBottomSheetKt")
+
 package ir.rezarasuolzadeh.iran.components.ui
 
 import androidx.compose.foundation.layout.Column
@@ -24,9 +26,8 @@ import ir.rezarasuolzadeh.iran.ui.theme.White
 @Composable
 fun CountyBottomSheet(
     modifier: Modifier = Modifier,
-    countyName: String?,
-    isConfirmEnabled: Boolean,
-    onConfirm: () -> Unit
+    centerName: String,
+    onBack: () -> Unit
 ) {
     Card(
         modifier = modifier
@@ -34,9 +35,7 @@ fun CountyBottomSheet(
             .wrapContentHeight(),
         shape = RoundedCornerShape(size = 24.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = White
-        )
+        colors = CardDefaults.cardColors(containerColor = White)
     ) {
         Column(
             modifier = Modifier
@@ -45,22 +44,19 @@ fun CountyBottomSheet(
         ) {
             Text(
                 modifier = Modifier.fillMaxWidth(),
-                text = stringResource(id = R.string.selected_county),
+                text = stringResource(id = R.string.center_of_selected_county),
                 style = Typography.bodySmall,
                 textAlign = TextAlign.End
             )
             Spacer(modifier = Modifier.height(height = 8.dp))
             Text(
                 modifier = Modifier.fillMaxWidth(),
-                text = countyName ?: stringResource(id = R.string.no_county_selected),
+                text = centerName,
                 style = Typography.bodyLarge,
                 textAlign = TextAlign.End
             )
             Spacer(modifier = Modifier.height(height = 20.dp))
-            SelectButton(
-                enabled = isConfirmEnabled,
-                onClick = onConfirm
-            )
+            ReturnButton(onClick = onBack)
         }
     }
 }
@@ -70,8 +66,7 @@ fun CountyBottomSheet(
 fun CountyBottomSheetPreview() {
     CountyBottomSheet(
         modifier = Modifier,
-        countyName = "اهواز",
-        isConfirmEnabled = true,
-        onConfirm = {}
+        centerName = "برازجان",
+        onBack = {}
     )
 }

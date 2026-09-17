@@ -4,29 +4,33 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import ir.rezarasuolzadeh.iran.components.map.CountyMap
+import ir.rezarasuolzadeh.iran.R
+import ir.rezarasuolzadeh.iran.components.map.IranMap
 import ir.rezarasuolzadeh.iran.components.ui.BackButton
-import ir.rezarasuolzadeh.iran.components.ui.CountyBottomSheet
 import ir.rezarasuolzadeh.iran.components.ui.GithubButton
 import ir.rezarasuolzadeh.iran.components.ui.HeaderView
+import ir.rezarasuolzadeh.iran.components.ui.IranBottomSheet
 import ir.rezarasuolzadeh.iran.extensions.openGithubRepository
 import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
-import ir.rezarasuolzadeh.iran.utils.getCountyName
 
 @Composable
-fun CountyScreen(
-    provinceId: String,
-    countyId: String,
+fun IranScreen(
+    onSelectedProvince: (id: String?) -> Unit,
     onBackPressed: () -> Unit
 ) {
     val context = LocalContext.current
+    var selectedProvinceId by remember { mutableStateOf<String?>(value = null) }
+    var selectedProvinceName by remember { mutableStateOf<String?>(value = null) }
 
     BackHandler {
         onBackPressed()
@@ -49,30 +53,34 @@ fun CountyScreen(
         )
         HeaderView(
             modifier = Modifier.align(alignment = Alignment.TopCenter),
-            title = getCountyName(countyId = countyId).orEmpty(),
-            description = "نقشه شهرستان انتخابی خود را مشاهده نمایید"
+            title = stringResource(id = R.string.select_province),
+            description = stringResource(id = R.string.select_your_province_please)
         )
-        CountyMap(
-            modifier = Modifier
-                .align(alignment = Alignment.Center)
-                .size(size = 200.dp),
-            provinceId = provinceId,
-            cityId = countyId
+        IranMap(
+            selectedProvinceId = selectedProvinceId,
+            selectedProvinceName = { name ->
+                selectedProvinceName = name
+            },
+            onProvinceSelected = { tapped ->
+                selectedProvinceId = tapped
+            }
         )
-        CountyBottomSheet(
+        IranBottomSheet(
             modifier = Modifier.align(alignment = Alignment.BottomCenter),
-            centerName = "برازجان",
-            onBack = onBackPressed
+            provinceName = selectedProvinceName,
+            isConfirmEnabled = selectedProvinceId != null,
+            onConfirm = {
+                onSelectedProvince(selectedProvinceId)
+            }
         )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun CountyScreenPreview() {
-    CountyScreen(
-        provinceId = "Qazvin",
-        countyId = "Qazvin_1",
+fun IranScreenPreview() {
+    IranScreen(
+        onSelectedProvince = {},
         onBackPressed = {}
     )
 }

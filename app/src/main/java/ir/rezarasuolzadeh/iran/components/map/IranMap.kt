@@ -65,7 +65,7 @@ private fun rememberScaledGeometries(
 }
 
 @Composable
-fun ProvincesMap(
+fun IranMap(
     selectedProvinceId: String?,
     selectedProvinceName: (String?) -> Unit,
     onProvinceSelected: (String?) -> Unit,
