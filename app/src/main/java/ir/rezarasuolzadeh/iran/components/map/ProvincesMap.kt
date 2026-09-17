@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran.components
+package ir.rezarasuolzadeh.iran.components.map
 
 import android.graphics.Matrix
 import android.graphics.Path

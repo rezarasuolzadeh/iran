@@ -2,24 +2,8 @@ package ir.rezarasuolzadeh.iran.screen
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
@@ -28,28 +12,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import ir.rezarasuolzadeh.iran.R
-import ir.rezarasuolzadeh.iran.components.CountiesMap
+import ir.rezarasuolzadeh.iran.components.map.CountiesMap
+import ir.rezarasuolzadeh.iran.components.ui.BackButton
+import ir.rezarasuolzadeh.iran.components.ui.CountyBottomSheet
+import ir.rezarasuolzadeh.iran.components.ui.GithubButton
+import ir.rezarasuolzadeh.iran.components.ui.HeaderView
+import ir.rezarasuolzadeh.iran.extensions.calculateSizeAccordingToProvince
 import ir.rezarasuolzadeh.iran.extensions.openGithubRepository
-import ir.rezarasuolzadeh.iran.ui.theme.Black
-import ir.rezarasuolzadeh.iran.ui.theme.DarkGray
 import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
-import ir.rezarasuolzadeh.iran.ui.theme.LightGray
-import ir.rezarasuolzadeh.iran.ui.theme.MediumBlue
-import ir.rezarasuolzadeh.iran.ui.theme.MediumGray
-import ir.rezarasuolzadeh.iran.ui.theme.Typography
-import ir.rezarasuolzadeh.iran.ui.theme.White
 
 @Composable
 fun CountyScreen(
@@ -58,9 +32,9 @@ fun CountyScreen(
     onBackPressed: () -> Unit
 ) {
     val context = LocalContext.current
-    val selectedCityByProvince = remember { mutableStateMapOf<String, String?>() }
-    val selectedCityId = selectedCityByProvince[provinceId]
-    var selectedCityName by remember { mutableStateOf<String?>(value = null) }
+    val selectedCountyByProvince = remember { mutableStateMapOf<String, String?>() }
+    val selectedCountyId = selectedCountyByProvince[provinceId]
+    var selectedCountyName by remember { mutableStateOf<String?>(value = null) }
 
     BackHandler {
         onBackPressed()
@@ -71,141 +45,42 @@ fun CountyScreen(
             .fillMaxSize()
             .background(color = LightBlue)
     ) {
-        Card(
-            modifier = Modifier
-                .padding(top = 48.dp, start = 18.dp)
-                .size(size = 40.dp)
-                .align(alignment = Alignment.TopStart),
-            shape = CircleShape,
-            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = White
-            ),
-            onClick = {
-                onBackPressed()
-            }
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(all = 10.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_back),
-                    contentDescription = "Back"
-                )
-            }
-        }
-        Card(
-            modifier = Modifier
-                .padding(top = 48.dp, end = 18.dp)
-                .size(size = 40.dp)
-                .align(alignment = Alignment.TopEnd)
-                .clickable(onClick = {}),
-            shape = CircleShape,
-            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = White
-            ),
+        BackButton(
+            modifier = Modifier.align(alignment = Alignment.TopStart),
+            onClick = onBackPressed
+        )
+        GithubButton(
+            modifier = Modifier.align(alignment = Alignment.TopEnd),
             onClick = {
                 context.openGithubRepository()
             }
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(all = 10.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_github),
-                    contentDescription = "Back"
-                )
-            }
-        }
-        Column(
-            modifier = Modifier
-                .padding(top = 96.dp)
-                .align(alignment = Alignment.TopCenter),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = stringResource(id = R.string.select_county),
-                style = Typography.titleLarge
-            )
-            Spacer(modifier = Modifier.height(height = 3.dp))
-            Text(
-                text = stringResource(id = R.string.select_your_county_please),
-                style = Typography.titleSmall
-            )
-        }
+        )
+        HeaderView(
+            modifier = Modifier.align(alignment = Alignment.TopCenter),
+            title = stringResource(id = R.string.select_county),
+            description = stringResource(id = R.string.select_your_county_please)
+        )
         CountiesMap(
             modifier = Modifier
-                .run { if (provinceId == "SistanVaBaluchestan" || provinceId == "AzerbaijaneGharbi") size(300.dp) else if (provinceId == "Ardabil") size(200.dp) else fillMaxSize() }
+                .calculateSizeAccordingToProvince(provinceId = provinceId)
                 .align(alignment = Alignment.Center),
             provinceId = provinceId,
-            selectedCityId = selectedCityId,
+            selectedCityId = selectedCountyId,
             selectedCityName = { name ->
-                selectedCityName = name
+                selectedCountyName = name
             },
             onCitySelected = { tapped ->
-                selectedCityByProvince[provinceId] = tapped
+                selectedCountyByProvince[provinceId] = tapped
             }
         )
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentHeight()
-                .align(alignment = Alignment.BottomCenter),
-            shape = RoundedCornerShape(size = 24.dp),
-            elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = White
-            )
-        ) {
-            Column(
-                modifier = Modifier
-                    .padding(horizontal = 24.dp, vertical = 24.dp),
-                horizontalAlignment = Alignment.End
-            ) {
-                Text(
-                    modifier = Modifier.fillMaxWidth(),
-                    text = stringResource(id = R.string.selected_county),
-                    style = Typography.bodySmall,
-                    textAlign = TextAlign.End
-                )
-                Spacer(modifier = Modifier.height(height = 8.dp))
-                Text(
-                    modifier = Modifier.fillMaxWidth(),
-                    text = selectedCityName ?: stringResource(id = R.string.no_county_selected),
-                    style = Typography.bodyLarge,
-                    textAlign = TextAlign.End
-                )
-                Spacer(modifier = Modifier.height(height = 20.dp))
-                Button(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(48.dp),
-                    shape = RoundedCornerShape(size = 16.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MediumBlue,
-                        contentColor = White,
-                        disabledContainerColor = LightGray,
-                        disabledContentColor = White
-                    ),
-                    onClick = {
-                        onSelectedCounty(selectedCityName.orEmpty())
-                    },
-                    enabled = selectedCityId != null
-                ) {
-                    Text(
-                        text = stringResource(id = R.string.confirm_county),
-                        style = Typography.bodyMedium
-                    )
-                }
+        CountyBottomSheet(
+            modifier = Modifier.align(alignment = Alignment.BottomCenter),
+            countyName = selectedCountyName,
+            isConfirmEnabled = selectedCountyId != null,
+            onConfirm = {
+                onSelectedCounty(selectedCountyName.orEmpty())
             }
-        }
+        )
     }
 }
 
