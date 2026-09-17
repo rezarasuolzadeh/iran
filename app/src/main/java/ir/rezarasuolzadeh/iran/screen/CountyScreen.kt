@@ -48,6 +48,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
 import ir.rezarasuolzadeh.iran.ui.theme.LightGray
 import ir.rezarasuolzadeh.iran.ui.theme.MediumBlue
 import ir.rezarasuolzadeh.iran.ui.theme.MediumGray
+import ir.rezarasuolzadeh.iran.ui.theme.Typography
 import ir.rezarasuolzadeh.iran.ui.theme.White
 
 @Composable
@@ -131,20 +132,12 @@ fun CountyScreen(
         ) {
             Text(
                 text = stringResource(id = R.string.select_county),
-                style = TextStyle(
-                    fontFamily = FontFamily(Font(R.font.vazir_bold)),
-                    color = Black,
-                    fontSize = 20.sp
-                )
+                style = Typography.titleLarge
             )
             Spacer(modifier = Modifier.height(height = 3.dp))
             Text(
                 text = stringResource(id = R.string.select_your_county_please),
-                style = TextStyle(
-                    fontFamily = FontFamily(Font(R.font.vazir)),
-                    color = MediumGray,
-                    fontSize = 12.sp
-                )
+                style = Typography.titleSmall
             )
         }
         CountiesMap(
@@ -179,22 +172,14 @@ fun CountyScreen(
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = stringResource(id = R.string.selected_county),
-                    style = TextStyle(
-                        fontFamily = FontFamily(Font(R.font.vazir_bold)),
-                        color = DarkGray,
-                        fontSize = 12.sp
-                    ),
+                    style = Typography.bodySmall,
                     textAlign = TextAlign.End
                 )
                 Spacer(modifier = Modifier.height(height = 8.dp))
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = selectedCityName ?: stringResource(id = R.string.no_county_selected),
-                    style = TextStyle(
-                        fontFamily = FontFamily(Font(R.font.vazir_bold)),
-                        color = Black,
-                        fontSize = 18.sp
-                    ),
+                    style = Typography.bodyLarge,
                     textAlign = TextAlign.End
                 )
                 Spacer(modifier = Modifier.height(height = 20.dp))
@@ -216,11 +201,7 @@ fun CountyScreen(
                 ) {
                     Text(
                         text = stringResource(id = R.string.confirm_county),
-                        style = TextStyle(
-                            fontFamily = FontFamily(Font(R.font.vazir)),
-                            color = White,
-                            fontSize = 15.sp
-                        )
+                        style = Typography.bodyMedium
                     )
                 }
             }

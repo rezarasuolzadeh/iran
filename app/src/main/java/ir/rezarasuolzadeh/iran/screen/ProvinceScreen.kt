@@ -31,22 +31,16 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import ir.rezarasuolzadeh.iran.R
 import ir.rezarasuolzadeh.iran.components.ProvincesMap
 import ir.rezarasuolzadeh.iran.extensions.openGithubRepository
-import ir.rezarasuolzadeh.iran.ui.theme.Black
-import ir.rezarasuolzadeh.iran.ui.theme.DarkGray
 import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
 import ir.rezarasuolzadeh.iran.ui.theme.LightGray
 import ir.rezarasuolzadeh.iran.ui.theme.MediumBlue
-import ir.rezarasuolzadeh.iran.ui.theme.MediumGray
+import ir.rezarasuolzadeh.iran.ui.theme.Typography
 import ir.rezarasuolzadeh.iran.ui.theme.White
 
 @Composable
@@ -129,20 +123,12 @@ fun ProvinceScreen(
         ) {
             Text(
                 text = stringResource(id = R.string.select_province),
-                style = TextStyle(
-                    fontFamily = FontFamily(Font(R.font.vazir_bold)),
-                    color = Black,
-                    fontSize = 20.sp
-                )
+                style = Typography.titleLarge
             )
             Spacer(modifier = Modifier.height(height = 3.dp))
             Text(
                 text = stringResource(id = R.string.select_your_province_please),
-                style = TextStyle(
-                    fontFamily = FontFamily(Font(R.font.vazir)),
-                    color = MediumGray,
-                    fontSize = 12.sp
-                )
+                style = Typography.titleSmall
             )
         }
         ProvincesMap(
@@ -173,22 +159,14 @@ fun ProvinceScreen(
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = stringResource(id = R.string.selected_province),
-                    style = TextStyle(
-                        fontFamily = FontFamily(Font(R.font.vazir_bold)),
-                        color = DarkGray,
-                        fontSize = 12.sp
-                    ),
+                    style = Typography.bodySmall,
                     textAlign = TextAlign.End
                 )
                 Spacer(modifier = Modifier.height(height = 8.dp))
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = selectedProvinceName ?: stringResource(id = R.string.no_province_selected),
-                    style = TextStyle(
-                        fontFamily = FontFamily(Font(R.font.vazir_bold)),
-                        color = Black,
-                        fontSize = 18.sp
-                    ),
+                    style = Typography.bodyLarge,
                     textAlign = TextAlign.End
                 )
                 Spacer(modifier = Modifier.height(height = 20.dp))
@@ -210,11 +188,7 @@ fun ProvinceScreen(
                 ) {
                     Text(
                         text = stringResource(id = R.string.confirm_province),
-                        style = TextStyle(
-                            fontFamily = FontFamily(Font(R.font.vazir)),
-                            color = White,
-                            fontSize = 15.sp
-                        )
+                        style = Typography.bodyMedium
                     )
                 }
             }
