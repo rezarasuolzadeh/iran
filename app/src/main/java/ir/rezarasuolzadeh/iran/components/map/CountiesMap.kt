@@ -24,6 +24,7 @@ import androidx.core.graphics.PathParser
 import ir.rezarasuolzadeh.iran.utils.getCounties
 import ir.rezarasuolzadeh.iran.utils.getProvinceInfo
 import ir.rezarasuolzadeh.iran.model.geometry.CountyGeometryModel
+import ir.rezarasuolzadeh.iran.model.geometry.GeometryModel
 import ir.rezarasuolzadeh.iran.ui.theme.MapInnerBorderColor
 import ir.rezarasuolzadeh.iran.ui.theme.MapDefaultColor
 import ir.rezarasuolzadeh.iran.ui.theme.MapOuterBorderColor
@@ -63,11 +64,6 @@ fun CountiesMap(
         mutableStateOf(IntSize.Zero)
     }
 
-    data class Geometries(
-        val border: Path,
-        val cityGeometries: List<CountyGeometryModel>
-    )
-
     val geometries = remember(provinceId, canvasSize) {
         if (canvasSize.width == 0 || canvasSize.height == 0) {
             return@remember null
@@ -99,7 +95,7 @@ fun CountiesMap(
             }
             CountyGeometryModel(county = city, drawPath = transformed.asComposePath(), hitRegion = region)
         }
-        Geometries(border = border.asComposePath(), cityGeometries = cityGeoms)
+        GeometryModel(border = border.asComposePath(), cityGeometries = cityGeoms)
     }
 
     Canvas(
