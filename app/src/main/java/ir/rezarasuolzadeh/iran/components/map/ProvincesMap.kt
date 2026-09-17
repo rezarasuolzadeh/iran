@@ -2,8 +2,6 @@ package ir.rezarasuolzadeh.iran.components.map
 
 import android.graphics.Matrix
 import android.graphics.Path
-import android.graphics.RectF
-import android.graphics.Region
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.aspectRatio
@@ -26,6 +24,7 @@ import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_MIN_X
 import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_MIN_Y
 import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_WIDTH
 import ir.rezarasuolzadeh.iran.constant.iran.iranProvinces
+import ir.rezarasuolzadeh.iran.extensions.toHitRegion
 import ir.rezarasuolzadeh.iran.model.geometry.ProvinceGeometryModel
 import ir.rezarasuolzadeh.iran.model.info.ProvinceInfoModel
 import ir.rezarasuolzadeh.iran.ui.theme.MapDefaultColor
@@ -35,41 +34,32 @@ import ir.rezarasuolzadeh.iran.ui.theme.MapWaterColor
 
 @Composable
 private fun rememberRawProvincePaths(): List<Pair<ProvinceInfoModel, Path>> = remember {
-    iranProvinces.map { province -> province to PathParser.createPathFromPathData(province.pathData) }
+    iranProvinces.map { province ->
+        province to PathParser.createPathFromPathData(province.pathData)
+    }
 }
 
 @Composable
 private fun rememberScaledGeometries(
     rawPaths: List<Pair<ProvinceInfoModel, Path>>,
-    canvasSize: IntSize,
+    canvasSize: IntSize
 ): List<ProvinceGeometryModel> = remember(canvasSize, rawPaths) {
     if (canvasSize.width == 0 || canvasSize.height == 0) {
         return@remember emptyList()
     }
+
     val scale = canvasSize.width / IRAN_MAP_VIEW_BOX_WIDTH
     val matrix = Matrix().apply {
         setTranslate(-IRAN_MAP_VIEW_BOX_MIN_X, -IRAN_MAP_VIEW_BOX_MIN_Y)
         postScale(scale, scale)
     }
-    rawPaths.map { (province, androidPath) ->
-        val transformed = Path(androidPath).apply { transform(matrix) }
-        val bounds = RectF()
-        transformed.computeBounds(bounds, true)
-        val region = Region().apply {
-            setPath(
-                transformed,
-                Region(
-                    bounds.left.toInt(),
-                    bounds.top.toInt(),
-                    bounds.right.toInt() + 1,
-                    bounds.bottom.toInt() + 1
-                )
-            )
-        }
+
+    rawPaths.map { (province, rawPath) ->
+        val transformed = Path(rawPath).apply { transform(matrix) }
         ProvinceGeometryModel(
             province = province,
             drawPath = transformed.asComposePath(),
-            hitRegion = region,
+            hitRegion = transformed.toHitRegion()
         )
     }
 }
@@ -86,8 +76,13 @@ fun ProvincesMap(
     strokeColor: Color = MapInnerBorderColor
 ) {
     val rawPaths = rememberRawProvincePaths()
+
     var canvasSize by remember { mutableStateOf(value = IntSize.Zero) }
-    val geometries = rememberScaledGeometries(rawPaths, canvasSize)
+
+    val geometries = rememberScaledGeometries(
+        rawPaths = rawPaths,
+        canvasSize = canvasSize
+    )
 
     Canvas(
         modifier = modifier
