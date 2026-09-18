@@ -28,7 +28,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
 @Composable
 fun ProvinceScreen(
     provinceId: String,
-    onSelectedCounty: (String) -> Unit,
+    onCountyConfirmed: (countyId: String) -> Unit,
     onBackPressed: () -> Unit
 ) {
     val context = LocalContext.current
@@ -78,7 +78,7 @@ fun ProvinceScreen(
             countyName = selectedCountyName,
             isConfirmEnabled = selectedCountyId != null,
             onConfirm = {
-                onSelectedCounty(selectedCountyId.orEmpty())
+                onCountyConfirmed(selectedCountyId.orEmpty())
             }
         )
     }
@@ -89,7 +89,7 @@ fun ProvinceScreen(
 fun ProvinceScreenPreview() {
     ProvinceScreen(
         provinceId = "Qazvin",
-        onSelectedCounty = {},
+        onCountyConfirmed = {},
         onBackPressed = {}
     )
 }

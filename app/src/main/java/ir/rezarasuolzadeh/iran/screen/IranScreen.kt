@@ -25,7 +25,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
 
 @Composable
 fun IranScreen(
-    onSelectedProvince: (id: String?) -> Unit,
+    onProvinceConfirmed: (provinceId: String) -> Unit,
     onBackPressed: () -> Unit
 ) {
     val context = LocalContext.current
@@ -70,7 +70,7 @@ fun IranScreen(
             provinceName = selectedProvinceName,
             isConfirmEnabled = selectedProvinceId != null,
             onConfirm = {
-                onSelectedProvince(selectedProvinceId)
+                onProvinceConfirmed(selectedProvinceId.orEmpty())
             }
         )
     }
@@ -80,7 +80,7 @@ fun IranScreen(
 @Composable
 fun IranScreenPreview() {
     IranScreen(
-        onSelectedProvince = {},
+        onProvinceConfirmed = {},
         onBackPressed = {}
     )
 }

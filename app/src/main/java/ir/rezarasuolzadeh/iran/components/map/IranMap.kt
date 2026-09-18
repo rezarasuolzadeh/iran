@@ -72,9 +72,9 @@ fun IranMap(
     selectedColor: Color = MapSelectedColor,
     waterColor: Color = MapWaterColor,
     borderColor: Color = MapInnerBorderColor,
-    onProvinceIdSelected: (String?) -> Unit = {},
-    onProvinceNameSelected: (String?) -> Unit = {},
-    onProvinceInfoSelected: (ProvinceInfoModel?) -> Unit = {}
+    onProvinceIdSelected: (provinceId: String?) -> Unit = {},
+    onProvinceNameSelected: (provinceName: String?) -> Unit = {},
+    onProvinceInfoSelected: (provinceInfo: ProvinceInfoModel?) -> Unit = {}
 ) {
     val rawPaths = rememberRawProvincePaths()
     var canvasSize by remember { mutableStateOf(value = IntSize.Zero) }

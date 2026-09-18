@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                 when {
                     selectedProvinceId == null && selectedCountyId == null -> {
                         IranScreen(
-                            onSelectedProvince = { id ->
+                            onProvinceConfirmed = { id ->
                                 selectedProvinceId = id
                             },
                             onBackPressed = {
@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
                     selectedProvinceId != null && selectedCountyId == null -> {
                         ProvinceScreen(
                             provinceId = selectedProvinceId.orEmpty(),
-                            onSelectedCounty = { id ->
+                            onCountyConfirmed = { id ->
                                 selectedCountyId = id
                             },
                             onBackPressed = {

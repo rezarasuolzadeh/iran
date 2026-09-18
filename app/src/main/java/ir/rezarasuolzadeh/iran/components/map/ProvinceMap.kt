@@ -91,9 +91,9 @@ fun ProvinceMap(
     waterColor: Color = MapWaterColor,
     innerBorderColor: Color = MapInnerBorderColor,
     outerBorderColor: Color = MapOuterBorderColor,
-    onCountyIdSelected: (String?) -> Unit = {},
-    onCountyNameSelected: (String?) -> Unit = {},
-    onCountyInfoSelected: (CountyInfoModel?) -> Unit = {}
+    onCountyIdSelected: (countyId: String?) -> Unit = {},
+    onCountyNameSelected: (countyName: String?) -> Unit = {},
+    onCountyInfoSelected: (countyInfo: CountyInfoModel?) -> Unit = {}
 ) {
     val province = remember(provinceId) { getProvinceInfo(provinceId = provinceId) } ?: return
     val rawBorderPath = rememberRawBorderPath(province = province)
