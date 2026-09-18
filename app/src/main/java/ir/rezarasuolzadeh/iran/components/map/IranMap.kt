@@ -66,19 +66,18 @@ private fun rememberScaledGeometries(
 
 @Composable
 fun IranMap(
-    selectedProvinceId: String?,
-    selectedProvinceName: (String?) -> Unit,
-    onProvinceSelected: (String?) -> Unit,
     modifier: Modifier = Modifier,
+    selectedProvinceId: String?,
     defaultColor: Color = MapDefaultColor,
     selectedColor: Color = MapSelectedColor,
     waterColor: Color = MapWaterColor,
-    borderColor: Color = MapInnerBorderColor
+    borderColor: Color = MapInnerBorderColor,
+    onProvinceIdSelected: (String?) -> Unit = {},
+    onProvinceNameSelected: (String?) -> Unit = {},
+    onProvinceInfoSelected: (ProvinceInfoModel?) -> Unit = {}
 ) {
     val rawPaths = rememberRawProvincePaths()
-
     var canvasSize by remember { mutableStateOf(value = IntSize.Zero) }
-
     val geometries = rememberScaledGeometries(
         rawPaths = rawPaths,
         canvasSize = canvasSize
@@ -95,12 +94,16 @@ fun IranMap(
                         geometry.province.isSelectable && geometry.hitRegion.contains(offset.x.toInt(), offset.y.toInt())
                     } ?: return@detectTapGestures
 
-                    selectedProvinceName(
+                    onProvinceIdSelected(
+                        if (tapped.province.id == selectedProvinceId) null else tapped.province.id
+                    )
+
+                    onProvinceNameSelected(
                         if (tapped.province.id == selectedProvinceId) null else tapped.province.name
                     )
 
-                    onProvinceSelected(
-                        if (tapped.province.id == selectedProvinceId) null else tapped.province.id
+                    onProvinceInfoSelected(
+                        if (tapped.province.id == selectedProvinceId) null else tapped.province
                     )
                 }
             }

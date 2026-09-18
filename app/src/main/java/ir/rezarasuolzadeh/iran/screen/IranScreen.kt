@@ -58,11 +58,11 @@ fun IranScreen(
         )
         IranMap(
             selectedProvinceId = selectedProvinceId,
-            selectedProvinceName = { name ->
+            onProvinceNameSelected = { name ->
                 selectedProvinceName = name
             },
-            onProvinceSelected = { tapped ->
-                selectedProvinceId = tapped
+            onProvinceIdSelected = { id ->
+                selectedProvinceId = id
             }
         )
         IranBottomSheet(

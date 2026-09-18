@@ -66,11 +66,11 @@ fun ProvinceScreen(
                 .align(alignment = Alignment.Center),
             provinceId = provinceId,
             selectedCountyId = selectedCountyId,
-            selectedCountyName = { name ->
+            onCountyNameSelected = { name ->
                 selectedCountyName = name
             },
-            onCountySelected = { tapped ->
-                selectedCountyByProvince[provinceId] = tapped
+            onCountyIdSelected = { id ->
+                selectedCountyByProvince[provinceId] = id
             }
         )
         ProvinceBottomSheet(

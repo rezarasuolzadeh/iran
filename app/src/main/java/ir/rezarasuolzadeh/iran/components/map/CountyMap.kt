@@ -59,21 +59,16 @@ private fun rememberScaledGeometry(
 
 @Composable
 fun CountyMap(
+    modifier: Modifier = Modifier,
     provinceId: String,
     countyId: String,
-    modifier: Modifier = Modifier,
-    selectedColor: Color = MapSelectedColor,
+    defaultColor: Color = MapSelectedColor,
     borderColor: Color = MapOuterBorderColor
 ) {
-    val county = remember(provinceId, countyId) {
-        getCounties(provinceId = provinceId).firstOrNull { it.id == countyId }
-    } ?: return
-
+    val county = remember(provinceId, countyId) { getCounties(provinceId = provinceId).firstOrNull { it.id == countyId } } ?: return
     val rawCountyPath = rememberRawCountyPath(county = county)
     val bounds = rememberCountyBounds(rawPath = rawCountyPath)
-
     var canvasSize by remember(countyId) { mutableStateOf(value = IntSize.Zero) }
-
     val geometry = rememberScaledGeometry(
         rawPath = rawCountyPath,
         bounds = bounds,
@@ -90,7 +85,7 @@ fun CountyMap(
 
         drawPath(
             path = path,
-            color = selectedColor
+            color = defaultColor
         )
         drawPath(
             path = path,

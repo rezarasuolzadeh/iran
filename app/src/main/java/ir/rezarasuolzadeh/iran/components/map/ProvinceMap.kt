@@ -83,26 +83,22 @@ private fun rememberScaledGeometries(
 
 @Composable
 fun ProvinceMap(
+    modifier: Modifier = Modifier,
     provinceId: String,
     selectedCountyId: String?,
-    selectedCountyName: (String?) -> Unit,
-    onCountySelected: (String?) -> Unit,
-    modifier: Modifier = Modifier,
     defaultColor: Color = MapDefaultColor,
     selectedColor: Color = MapSelectedColor,
     waterColor: Color = MapWaterColor,
     innerBorderColor: Color = MapInnerBorderColor,
-    outerBorderColor: Color = MapOuterBorderColor
+    outerBorderColor: Color = MapOuterBorderColor,
+    onCountyIdSelected: (String?) -> Unit = {},
+    onCountyNameSelected: (String?) -> Unit = {},
+    onCountyInfoSelected: (CountyInfoModel?) -> Unit = {}
 ) {
-    val province = remember(provinceId) {
-        getProvinceInfo(provinceId = provinceId)
-    } ?: return
-
+    val province = remember(provinceId) { getProvinceInfo(provinceId = provinceId) } ?: return
     val rawBorderPath = rememberRawBorderPath(province = province)
     val rawCountyPaths = rememberRawCountyPaths(provinceId = provinceId)
-
     var canvasSize by remember(provinceId) { mutableStateOf(value = IntSize.Zero) }
-
     val geometries = rememberScaledGeometries(
         province = province,
         rawBorderPath = rawBorderPath,
@@ -119,16 +115,19 @@ fun ProvinceMap(
                 val geoms = geometries ?: return@pointerInput
                 detectTapGestures { offset ->
                     val tapped = geoms.cityGeometries.firstOrNull { geometry ->
-                        geometry.county.isSelectable &&
-                                geometry.hitRegion.contains(offset.x.toInt(), offset.y.toInt())
+                        geometry.county.isSelectable && geometry.hitRegion.contains(offset.x.toInt(), offset.y.toInt())
                     } ?: return@detectTapGestures
 
-                    selectedCountyName(
+                    onCountyIdSelected(
+                        if (tapped.county.id == selectedCountyId) null else tapped.county.id
+                    )
+
+                    onCountyNameSelected(
                         if (tapped.county.id == selectedCountyId) null else tapped.county.name
                     )
 
-                    onCountySelected(
-                        if (tapped.county.id == selectedCountyId) null else tapped.county.id
+                    onCountyInfoSelected(
+                        if (tapped.county.id == selectedCountyId) null else tapped.county
                     )
                 }
             }
