@@ -73,7 +73,7 @@ fun IranMap(
     defaultColor: Color = MapDefaultColor,
     selectedColor: Color = MapSelectedColor,
     waterColor: Color = MapWaterColor,
-    strokeColor: Color = MapInnerBorderColor
+    borderColor: Color = MapInnerBorderColor
 ) {
     val rawPaths = rememberRawProvincePaths()
 
@@ -96,7 +96,7 @@ fun IranMap(
                     } ?: return@detectTapGestures
 
                     selectedProvinceName(
-                        if (tapped.province.id == selectedProvinceId) null else tapped.province.nameFa
+                        if (tapped.province.id == selectedProvinceId) null else tapped.province.name
                     )
 
                     onProvinceSelected(
@@ -117,7 +117,7 @@ fun IranMap(
             )
             drawPath(
                 path = geometry.drawPath,
-                color = strokeColor,
+                color = borderColor,
                 style = Stroke(width = 1.5f)
             )
         }

@@ -65,11 +65,11 @@ fun ProvinceScreen(
                 .calculateSizeAccordingToProvince(provinceId = provinceId)
                 .align(alignment = Alignment.Center),
             provinceId = provinceId,
-            selectedCityId = selectedCountyId,
-            selectedCityName = { name ->
+            selectedCountyId = selectedCountyId,
+            selectedCountyName = { name ->
                 selectedCountyName = name
             },
-            onCitySelected = { tapped ->
+            onCountySelected = { tapped ->
                 selectedCountyByProvince[provinceId] = tapped
             }
         )

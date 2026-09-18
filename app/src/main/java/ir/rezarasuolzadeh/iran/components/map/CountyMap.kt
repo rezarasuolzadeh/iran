@@ -21,7 +21,6 @@ import androidx.core.graphics.PathParser
 import ir.rezarasuolzadeh.iran.model.info.CountyInfoModel
 import ir.rezarasuolzadeh.iran.ui.theme.MapOuterBorderColor
 import ir.rezarasuolzadeh.iran.ui.theme.MapSelectedColor
-import ir.rezarasuolzadeh.iran.ui.theme.MapWaterColor
 import ir.rezarasuolzadeh.iran.utils.getCounties
 import androidx.compose.ui.graphics.Path as ComposePath
 
@@ -61,20 +60,19 @@ private fun rememberScaledGeometry(
 @Composable
 fun CountyMap(
     provinceId: String,
-    cityId: String,
+    countyId: String,
     modifier: Modifier = Modifier,
     selectedColor: Color = MapSelectedColor,
-    nonSelectableColor: Color = MapWaterColor,
     borderColor: Color = MapOuterBorderColor
 ) {
-    val county = remember(provinceId, cityId) {
-        getCounties(provinceId = provinceId).firstOrNull { it.id == cityId }
+    val county = remember(provinceId, countyId) {
+        getCounties(provinceId = provinceId).firstOrNull { it.id == countyId }
     } ?: return
 
     val rawCountyPath = rememberRawCountyPath(county = county)
     val bounds = rememberCountyBounds(rawPath = rawCountyPath)
 
-    var canvasSize by remember(cityId) { mutableStateOf(value = IntSize.Zero) }
+    var canvasSize by remember(countyId) { mutableStateOf(value = IntSize.Zero) }
 
     val geometry = rememberScaledGeometry(
         rawPath = rawCountyPath,
@@ -90,11 +88,9 @@ fun CountyMap(
     ) {
         val path = geometry ?: return@Canvas
 
-        val fillColor = if (county.isSelectable) selectedColor else nonSelectableColor
-
         drawPath(
             path = path,
-            color = fillColor
+            color = selectedColor
         )
         drawPath(
             path = path,

@@ -58,7 +58,7 @@ fun CountyScreen(
                 .align(alignment = Alignment.Center)
                 .size(size = 200.dp),
             provinceId = provinceId,
-            cityId = countyId
+            countyId = countyId
         )
         CountyBottomSheet(
             modifier = Modifier.align(alignment = Alignment.BottomCenter),

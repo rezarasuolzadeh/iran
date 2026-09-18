@@ -2,7 +2,7 @@ package ir.rezarasuolzadeh.iran.model.info
 
 data class ProvinceInfoModel(
     val id: String,
-    val nameFa: String,
+    val name: String,
     val isSelectable: Boolean,
     val pathData: String,
     val borderPathData: String,

@@ -84,15 +84,15 @@ private fun rememberScaledGeometries(
 @Composable
 fun ProvinceMap(
     provinceId: String,
-    selectedCityId: String?,
-    selectedCityName: (String?) -> Unit,
-    onCitySelected: (String?) -> Unit,
+    selectedCountyId: String?,
+    selectedCountyName: (String?) -> Unit,
+    onCountySelected: (String?) -> Unit,
     modifier: Modifier = Modifier,
     defaultColor: Color = MapDefaultColor,
     selectedColor: Color = MapSelectedColor,
-    nonSelectableColor: Color = MapWaterColor,
-    strokeColor: Color = MapInnerBorderColor,
-    provinceBorderColor: Color = MapOuterBorderColor
+    waterColor: Color = MapWaterColor,
+    innerBorderColor: Color = MapInnerBorderColor,
+    outerBorderColor: Color = MapOuterBorderColor
 ) {
     val province = remember(provinceId) {
         getProvinceInfo(provinceId = provinceId)
@@ -123,12 +123,12 @@ fun ProvinceMap(
                                 geometry.hitRegion.contains(offset.x.toInt(), offset.y.toInt())
                     } ?: return@detectTapGestures
 
-                    selectedCityName(
-                        if (tapped.county.id == selectedCityId) null else tapped.county.nameFa
+                    selectedCountyName(
+                        if (tapped.county.id == selectedCountyId) null else tapped.county.name
                     )
 
-                    onCitySelected(
-                        if (tapped.county.id == selectedCityId) null else tapped.county.id
+                    onCountySelected(
+                        if (tapped.county.id == selectedCountyId) null else tapped.county.id
                     )
                 }
             }
@@ -137,8 +137,8 @@ fun ProvinceMap(
 
         geoms.cityGeometries.forEach { geometry ->
             val fillColor = when {
-                !geometry.county.isSelectable -> nonSelectableColor
-                geometry.county.id == selectedCityId -> selectedColor
+                !geometry.county.isSelectable -> waterColor
+                geometry.county.id == selectedCountyId -> selectedColor
                 else -> defaultColor
             }
             drawPath(
@@ -147,13 +147,13 @@ fun ProvinceMap(
             )
             drawPath(
                 path = geometry.drawPath,
-                color = strokeColor,
+                color = innerBorderColor,
                 style = Stroke(width = 1.5f)
             )
         }
         drawPath(
             path = geoms.border,
-            color = provinceBorderColor,
+            color = outerBorderColor,
             style = Stroke(width = 3f)
         )
     }
