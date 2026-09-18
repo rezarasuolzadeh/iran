@@ -19,6 +19,7 @@ import ir.rezarasuolzadeh.iran.components.ui.HeaderView
 import ir.rezarasuolzadeh.iran.extensions.openGithubRepository
 import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
 import ir.rezarasuolzadeh.iran.utils.getCountyName
+import ir.rezarasuolzadeh.iran.utils.getCountySeatName
 
 @Composable
 fun CountyScreen(
@@ -61,7 +62,7 @@ fun CountyScreen(
         )
         CountyBottomSheet(
             modifier = Modifier.align(alignment = Alignment.BottomCenter),
-            centerName = "برازجان",
+            centerName = getCountySeatName(countyId = countyId).orEmpty(),
             onBack = onBackPressed
         )
     }
