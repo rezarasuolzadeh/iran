@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran
+package ir.rezarasuolzadeh.iran.ui.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,8 +13,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import ir.rezarasuolzadeh.iran.ui.components.ui.ExitDialog
 import ir.rezarasuolzadeh.iran.ui.screen.CountyScreen
-import ir.rezarasuolzadeh.iran.ui.screen.ProvinceScreen
 import ir.rezarasuolzadeh.iran.ui.screen.IranScreen
+import ir.rezarasuolzadeh.iran.ui.screen.ProvinceScreen
 import ir.rezarasuolzadeh.iran.ui.theme.IranTheme
 
 class MainActivity : ComponentActivity() {
