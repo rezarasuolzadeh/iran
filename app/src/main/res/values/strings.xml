@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Iran</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+    <string name="exit">خروج</string>
+    <string name="back">بازگشت</string>
     <string name="select_province">انتخاب استان</string>
     <string name="select_county">انتخاب شهرستان</string>
     <string name="no_province_selected">استانی انتخاب نشده است</string>
@@ -11,5 +15,5 @@
     <string name="confirm_province">تایید استان</string>
     <string name="confirm_county">تایید شهرستان</string>
     <string name="center_of_selected_county">مرکز شهرستان منتخب</string>
-    <string name="back">بازگشت</string>
+    <string name="are_you_want_to_exit">آیا می‌خواهید از برنامه خارج شوید؟</string>
 </resources>

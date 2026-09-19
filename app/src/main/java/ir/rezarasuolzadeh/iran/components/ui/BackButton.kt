@@ -25,7 +25,7 @@ fun BackButton(
 ) {
     Card(
         modifier = modifier
-            .padding(top = 48.dp, start = 18.dp)
+            .padding(vertical = 48.dp, horizontal = 18.dp)
             .size(size = 40.dp),
         shape = CircleShape,
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),

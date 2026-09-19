@@ -11,11 +11,14 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import ir.rezarasuolzadeh.iran.R
 import ir.rezarasuolzadeh.iran.ui.theme.Typography
@@ -32,31 +35,32 @@ fun IranBottomSheet(
         modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight(),
-        shape = RoundedCornerShape(size = 24.dp),
+        shape = RoundedCornerShape(topEnd = 24.dp, topStart = 24.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
         colors = CardDefaults.cardColors(containerColor = White)
     ) {
         Column(
             modifier = Modifier
                 .padding(horizontal = 24.dp, vertical = 24.dp),
-            horizontalAlignment = Alignment.End
+            horizontalAlignment = Alignment.Start
         ) {
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = stringResource(id = R.string.selected_province),
                 style = Typography.bodySmall,
-                textAlign = TextAlign.End
+                textAlign = TextAlign.Start
             )
             Spacer(modifier = Modifier.height(height = 8.dp))
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = provinceName ?: stringResource(id = R.string.no_province_selected),
                 style = Typography.bodyLarge,
-                textAlign = TextAlign.End
+                textAlign = TextAlign.Start
             )
             Spacer(modifier = Modifier.height(height = 20.dp))
-            SelectButton(
+            FillButton(
                 enabled = isConfirmEnabled,
+                text = stringResource(id = R.string.confirm_province),
                 onClick = onConfirm
             )
         }
@@ -66,10 +70,12 @@ fun IranBottomSheet(
 @Preview
 @Composable
 fun IranBottomSheetPreview() {
-    IranBottomSheet(
-        modifier = Modifier,
-        provinceName = "قزوین",
-        isConfirmEnabled = true,
-        onConfirm = {}
-    )
+    CompositionLocalProvider(value = LocalLayoutDirection provides LayoutDirection.Rtl) {
+        IranBottomSheet(
+            modifier = Modifier,
+            provinceName = "قزوین",
+            isConfirmEnabled = true,
+            onConfirm = {}
+        )
+    }
 }

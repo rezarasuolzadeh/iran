@@ -11,6 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import ir.rezarasuolzadeh.iran.components.ui.ExitDialog
 import ir.rezarasuolzadeh.iran.screen.CountyScreen
 import ir.rezarasuolzadeh.iran.screen.ProvinceScreen
 import ir.rezarasuolzadeh.iran.screen.IranScreen
@@ -28,6 +29,7 @@ class MainActivity : ComponentActivity() {
         )
         setContent {
             IranTheme {
+                var showExitDialog by remember { mutableStateOf<Boolean>(value = false) }
                 var selectedProvinceId by remember { mutableStateOf<String?>(value = null) }
                 var selectedCountyId by remember { mutableStateOf<String?>(value = null) }
                 when {
@@ -38,7 +40,7 @@ class MainActivity : ComponentActivity() {
                             },
                             onBackPressed = {
                                 selectedProvinceId = null
-                                finish()
+                                showExitDialog = true
                             }
                         )
                     }
@@ -66,6 +68,17 @@ class MainActivity : ComponentActivity() {
                             }
                         )
                     }
+                }
+                if (showExitDialog) {
+                    ExitDialog(
+                        onConfirmClicked = {
+                            showExitDialog = false
+                            finish()
+                        },
+                        onCancelClicked = {
+                            showExitDialog = false
+                        }
+                    )
                 }
             }
         }

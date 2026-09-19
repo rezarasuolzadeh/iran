@@ -38,15 +38,15 @@ fun CountyScreen(
             .fillMaxSize()
             .background(color = LightBlue)
     ) {
-        BackButton(
-            modifier = Modifier.align(alignment = Alignment.TopStart),
-            onClick = onBackPressed
-        )
         GithubButton(
-            modifier = Modifier.align(alignment = Alignment.TopEnd),
+            modifier = Modifier.align(alignment = Alignment.TopStart),
             onClick = {
                 context.openGithubRepository()
             }
+        )
+        BackButton(
+            modifier = Modifier.align(alignment = Alignment.TopEnd),
+            onClick = onBackPressed
         )
         HeaderView(
             modifier = Modifier.align(alignment = Alignment.TopCenter),

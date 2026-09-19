@@ -25,7 +25,7 @@ fun GithubButton(
 ) {
     Card(
         modifier = modifier
-            .padding(top = 48.dp, end = 18.dp)
+            .padding(vertical = 48.dp, horizontal = 18.dp)
             .size(size = 40.dp),
         shape = CircleShape,
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
@@ -42,7 +42,7 @@ fun GithubButton(
         ) {
             Icon(
                 imageVector = ImageVector.vectorResource(id = R.drawable.ic_github),
-                contentDescription = "Back"
+                contentDescription = "Back",
             )
         }
     }

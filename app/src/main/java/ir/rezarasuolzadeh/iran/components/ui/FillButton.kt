@@ -8,18 +8,17 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ir.rezarasuolzadeh.iran.R
 import ir.rezarasuolzadeh.iran.ui.theme.LightGray
 import ir.rezarasuolzadeh.iran.ui.theme.MediumBlue
 import ir.rezarasuolzadeh.iran.ui.theme.Typography
 import ir.rezarasuolzadeh.iran.ui.theme.White
 
 @Composable
-fun SelectButton(
+fun FillButton(
     modifier: Modifier = Modifier,
+    text: String,
     enabled: Boolean = true,
     onClick: () -> Unit
 ) {
@@ -38,7 +37,7 @@ fun SelectButton(
         enabled = enabled
     ) {
         Text(
-            text = stringResource(id = R.string.confirm_county),
+            text = text,
             style = Typography.bodyMedium
         )
     }
@@ -46,9 +45,10 @@ fun SelectButton(
 
 @Preview
 @Composable
-fun SelectButtonPreview() {
-    SelectButton(
+fun FillButtonPreview() {
+    FillButton(
         modifier = Modifier,
+        text = "تایید",
         onClick = {}
     )
 }
