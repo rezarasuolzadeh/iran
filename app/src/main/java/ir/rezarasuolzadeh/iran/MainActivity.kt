@@ -11,10 +11,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
-import ir.rezarasuolzadeh.iran.components.ui.ExitDialog
-import ir.rezarasuolzadeh.iran.screen.CountyScreen
-import ir.rezarasuolzadeh.iran.screen.ProvinceScreen
-import ir.rezarasuolzadeh.iran.screen.IranScreen
+import ir.rezarasuolzadeh.iran.ui.components.ui.ExitDialog
+import ir.rezarasuolzadeh.iran.ui.screen.CountyScreen
+import ir.rezarasuolzadeh.iran.ui.screen.ProvinceScreen
+import ir.rezarasuolzadeh.iran.ui.screen.IranScreen
 import ir.rezarasuolzadeh.iran.ui.theme.IranTheme
 
 class MainActivity : ComponentActivity() {

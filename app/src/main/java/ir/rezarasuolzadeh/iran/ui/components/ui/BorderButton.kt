@@ -1,5 +1,6 @@
-package ir.rezarasuolzadeh.iran.components.ui
+package ir.rezarasuolzadeh.iran.ui.components.ui
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,7 +17,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.Typography
 import ir.rezarasuolzadeh.iran.ui.theme.White
 
 @Composable
-fun FillButton(
+fun BorderButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean = true,
@@ -26,29 +27,33 @@ fun FillButton(
         modifier = modifier
             .fillMaxWidth()
             .height(48.dp),
-        shape = RoundedCornerShape(size = 16.dp),
+        shape = RoundedCornerShape(16.dp),
+        border = BorderStroke(
+            width = 2.dp,
+            color = MediumBlue
+        ),
         colors = ButtonDefaults.buttonColors(
-            containerColor = MediumBlue,
-            contentColor = White,
-            disabledContainerColor = LightGray,
-            disabledContentColor = White
+            containerColor = White,
+            contentColor = MediumBlue,
+            disabledContainerColor = White,
+            disabledContentColor = LightGray
         ),
         onClick = onClick,
         enabled = enabled
     ) {
         Text(
             text = text,
-            style = Typography.bodyMedium
+            style = Typography.bodyMedium.copy(color = MediumBlue)
         )
     }
 }
 
 @Preview
 @Composable
-fun FillButtonPreview() {
-    FillButton(
+fun BorderButtonPreview() {
+    BorderButton(
         modifier = Modifier,
-        text = "تایید",
+        text = "انصراف",
         onClick = {}
     )
 }

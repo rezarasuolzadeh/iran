@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran.screen
+package ir.rezarasuolzadeh.iran.ui.screen
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
@@ -15,12 +15,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import ir.rezarasuolzadeh.iran.R
-import ir.rezarasuolzadeh.iran.components.map.IranMap
-import ir.rezarasuolzadeh.iran.components.ui.BackButton
-import ir.rezarasuolzadeh.iran.components.ui.GithubButton
-import ir.rezarasuolzadeh.iran.components.ui.HeaderView
-import ir.rezarasuolzadeh.iran.components.ui.IranBottomSheet
-import ir.rezarasuolzadeh.iran.extensions.openGithubRepository
+import ir.rezarasuolzadeh.iran.ui.components.map.IranMap
+import ir.rezarasuolzadeh.iran.ui.components.ui.BackButton
+import ir.rezarasuolzadeh.iran.ui.components.ui.GithubButton
+import ir.rezarasuolzadeh.iran.ui.components.ui.HeaderView
+import ir.rezarasuolzadeh.iran.ui.components.ui.IranBottomSheet
+import ir.rezarasuolzadeh.iran.utils.extensions.openGithubRepository
 import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
 
 @Composable

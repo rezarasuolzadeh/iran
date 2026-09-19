@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran.components.map
+package ir.rezarasuolzadeh.iran.ui.components.map
 
 import android.graphics.Matrix
 import android.graphics.Path
@@ -19,7 +19,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.IntSize
 import androidx.core.graphics.PathParser
-import ir.rezarasuolzadeh.iran.extensions.toHitRegion
+import ir.rezarasuolzadeh.iran.utils.extensions.toHitRegion
 import ir.rezarasuolzadeh.iran.model.geometry.CountyGeometryModel
 import ir.rezarasuolzadeh.iran.model.geometry.GeometryModel
 import ir.rezarasuolzadeh.iran.model.info.CountyInfoModel
@@ -29,8 +29,8 @@ import ir.rezarasuolzadeh.iran.ui.theme.MapInnerBorderColor
 import ir.rezarasuolzadeh.iran.ui.theme.MapOuterBorderColor
 import ir.rezarasuolzadeh.iran.ui.theme.MapSelectedColor
 import ir.rezarasuolzadeh.iran.ui.theme.MapWaterColor
-import ir.rezarasuolzadeh.iran.utils.getCounties
-import ir.rezarasuolzadeh.iran.utils.getProvinceInfo
+import ir.rezarasuolzadeh.iran.utils.map.getCounties
+import ir.rezarasuolzadeh.iran.utils.map.getProvinceInfo
 
 @Composable
 private fun rememberRawBorderPath(province: ProvinceInfoModel): Path = remember(province.id) {

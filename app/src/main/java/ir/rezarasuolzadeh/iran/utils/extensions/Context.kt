@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran.extensions
+package ir.rezarasuolzadeh.iran.utils.extensions
 
 import android.content.Context
 import android.content.Intent

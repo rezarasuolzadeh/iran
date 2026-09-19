@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran.screen
+package ir.rezarasuolzadeh.iran.ui.screen
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
@@ -11,15 +11,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ir.rezarasuolzadeh.iran.components.map.CountyMap
-import ir.rezarasuolzadeh.iran.components.ui.BackButton
-import ir.rezarasuolzadeh.iran.components.ui.CountyBottomSheet
-import ir.rezarasuolzadeh.iran.components.ui.GithubButton
-import ir.rezarasuolzadeh.iran.components.ui.HeaderView
-import ir.rezarasuolzadeh.iran.extensions.openGithubRepository
+import ir.rezarasuolzadeh.iran.ui.components.map.CountyMap
+import ir.rezarasuolzadeh.iran.ui.components.ui.BackButton
+import ir.rezarasuolzadeh.iran.ui.components.ui.CountyBottomSheet
+import ir.rezarasuolzadeh.iran.ui.components.ui.GithubButton
+import ir.rezarasuolzadeh.iran.ui.components.ui.HeaderView
+import ir.rezarasuolzadeh.iran.utils.extensions.openGithubRepository
 import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
-import ir.rezarasuolzadeh.iran.utils.getCountyName
-import ir.rezarasuolzadeh.iran.utils.getCountySeatName
+import ir.rezarasuolzadeh.iran.utils.map.getCountyName
+import ir.rezarasuolzadeh.iran.utils.map.getCountySeatName
 
 @Composable
 fun CountyScreen(

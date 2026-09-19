@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran.extensions
+package ir.rezarasuolzadeh.iran.utils.extensions
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size

@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran.components.map
+package ir.rezarasuolzadeh.iran.ui.components.map
 
 import android.graphics.Matrix
 import android.graphics.Path
@@ -24,7 +24,7 @@ import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_MIN_X
 import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_MIN_Y
 import ir.rezarasuolzadeh.iran.constant.Constants.IRAN_MAP_VIEW_BOX_WIDTH
 import ir.rezarasuolzadeh.iran.constant.iran.iranProvinces
-import ir.rezarasuolzadeh.iran.extensions.toHitRegion
+import ir.rezarasuolzadeh.iran.utils.extensions.toHitRegion
 import ir.rezarasuolzadeh.iran.model.geometry.ProvinceGeometryModel
 import ir.rezarasuolzadeh.iran.model.info.ProvinceInfoModel
 import ir.rezarasuolzadeh.iran.ui.theme.MapDefaultColor

@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran.components.ui
+package ir.rezarasuolzadeh.iran.ui.components.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

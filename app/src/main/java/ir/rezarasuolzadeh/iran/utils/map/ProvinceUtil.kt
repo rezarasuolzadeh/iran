@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran.utils
+package ir.rezarasuolzadeh.iran.utils.map
 
 import ir.rezarasuolzadeh.iran.constant.iran.iranProvinces
 import ir.rezarasuolzadeh.iran.model.info.ProvinceInfoModel

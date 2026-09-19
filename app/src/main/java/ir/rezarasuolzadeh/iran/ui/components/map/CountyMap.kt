@@ -1,4 +1,4 @@
-package ir.rezarasuolzadeh.iran.components.map
+package ir.rezarasuolzadeh.iran.ui.components.map
 
 import android.graphics.Matrix
 import android.graphics.Path
@@ -21,7 +21,7 @@ import androidx.core.graphics.PathParser
 import ir.rezarasuolzadeh.iran.model.info.CountyInfoModel
 import ir.rezarasuolzadeh.iran.ui.theme.MapOuterBorderColor
 import ir.rezarasuolzadeh.iran.ui.theme.MapSelectedColor
-import ir.rezarasuolzadeh.iran.utils.getCounties
+import ir.rezarasuolzadeh.iran.utils.map.getCounties
 import androidx.compose.ui.graphics.Path as ComposePath
 
 @Composable

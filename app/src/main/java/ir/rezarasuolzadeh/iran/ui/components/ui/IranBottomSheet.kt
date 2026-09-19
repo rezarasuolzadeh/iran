@@ -1,6 +1,4 @@
-@file:JvmName("CountyBottomSheetKt")
-
-package ir.rezarasuolzadeh.iran.components.ui
+package ir.rezarasuolzadeh.iran.ui.components.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -27,10 +25,11 @@ import ir.rezarasuolzadeh.iran.ui.theme.Typography
 import ir.rezarasuolzadeh.iran.ui.theme.White
 
 @Composable
-fun CountyBottomSheet(
+fun IranBottomSheet(
     modifier: Modifier = Modifier,
-    centerName: String,
-    onBack: () -> Unit
+    provinceName: String?,
+    isConfirmEnabled: Boolean,
+    onConfirm: () -> Unit
 ) {
     Card(
         modifier = modifier
@@ -47,21 +46,22 @@ fun CountyBottomSheet(
         ) {
             Text(
                 modifier = Modifier.fillMaxWidth(),
-                text = stringResource(id = R.string.center_of_selected_county),
+                text = stringResource(id = R.string.selected_province),
                 style = Typography.bodySmall,
                 textAlign = TextAlign.Start
             )
             Spacer(modifier = Modifier.height(height = 8.dp))
             Text(
                 modifier = Modifier.fillMaxWidth(),
-                text = centerName,
+                text = provinceName ?: stringResource(id = R.string.no_province_selected),
                 style = Typography.bodyLarge,
                 textAlign = TextAlign.Start
             )
             Spacer(modifier = Modifier.height(height = 20.dp))
             FillButton(
-                text = stringResource(id = R.string.back),
-                onClick = onBack
+                enabled = isConfirmEnabled,
+                text = stringResource(id = R.string.confirm_province),
+                onClick = onConfirm
             )
         }
     }
@@ -69,10 +69,13 @@ fun CountyBottomSheet(
 
 @Preview
 @Composable
-fun CountyBottomSheetPreview() = CompositionLocalProvider(value = LocalLayoutDirection provides LayoutDirection.Rtl) {
-    CountyBottomSheet(
-        modifier = Modifier,
-        centerName = "برازجان",
-        onBack = {}
-    )
+fun IranBottomSheetPreview() {
+    CompositionLocalProvider(value = LocalLayoutDirection provides LayoutDirection.Rtl) {
+        IranBottomSheet(
+            modifier = Modifier,
+            provinceName = "قزوین",
+            isConfirmEnabled = true,
+            onConfirm = {}
+        )
+    }
 }
