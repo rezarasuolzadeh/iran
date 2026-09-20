@@ -16,6 +16,14 @@ import ir.rezarasuolzadeh.iran.ui.theme.MediumBlue
 import ir.rezarasuolzadeh.iran.ui.theme.Typography
 import ir.rezarasuolzadeh.iran.ui.theme.White
 
+/**
+ * A full-width button with an outline instead of a solid fill, used for secondary
+ * actions (e.g. "cancel") that shouldn't compete with a [FillButton] on the same screen.
+ *
+ * @param text the label shown on the button.
+ * @param enabled whether the button can be tapped; when `false` it's shown grayed out.
+ * @param onClick called when the button is tapped.
+ */
 @Composable
 fun BorderButton(
     modifier: Modifier = Modifier,

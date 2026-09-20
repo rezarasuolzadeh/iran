@@ -12,6 +12,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ir.rezarasuolzadeh.iran.ui.theme.Typography
 
+/**
+ * A simple centered title and description, used at the top of a screen to
+ * explain what the user should do there.
+ *
+ * @param title the main heading text.
+ * @param description a short line of supporting text shown under the title.
+ */
 @Composable
 fun HeaderView(
     modifier: Modifier = Modifier,

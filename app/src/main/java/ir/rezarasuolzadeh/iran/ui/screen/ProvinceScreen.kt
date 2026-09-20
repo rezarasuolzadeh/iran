@@ -25,6 +25,15 @@ import ir.rezarasuolzadeh.iran.utils.extensions.calculateSizeAccordingToProvince
 import ir.rezarasuolzadeh.iran.utils.extensions.openGithubRepository
 import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
 
+/**
+ * The second step of the flow: shows a zoomed-in map of one province so the user can
+ * pick a county within it. Each province remembers its own selected county, so
+ * navigating back and forth between provinces doesn't lose the user's picks.
+ *
+ * @param provinceId the province whose counties are being shown.
+ * @param onCountyConfirmed called with the chosen county's id once the user confirms it.
+ * @param onBackPressed called when the user backs out of this screen.
+ */
 @Composable
 fun ProvinceScreen(
     provinceId: String,

@@ -21,6 +21,14 @@ import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
 import ir.rezarasuolzadeh.iran.utils.map.getCountyName
 import ir.rezarasuolzadeh.iran.utils.map.getCountySeatName
 
+/**
+ * The final step of the flow: shows the single county the user picked on its own,
+ * along with the name of its county seat.
+ *
+ * @param provinceId the province the county belongs to.
+ * @param countyId the county being shown.
+ * @param onBackPressed called when the user backs out of this screen.
+ */
 @Composable
 fun CountyScreen(
     provinceId: String,
@@ -62,7 +70,7 @@ fun CountyScreen(
         )
         CountyBottomSheet(
             modifier = Modifier.align(alignment = Alignment.BottomCenter),
-            centerName = getCountySeatName(countyId = countyId).orEmpty(),
+            countySeatName = getCountySeatName(countyId = countyId).orEmpty(),
             onBack = onBackPressed
         )
     }

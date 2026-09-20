@@ -2,6 +2,10 @@ package ir.rezarasuolzadeh.iran.constant.county
 
 import ir.rezarasuolzadeh.iran.model.info.CountyInfoModel
 
+/**
+ * The counties of Ardabil province. Each `pathData` is a raw, unscaled SVG path string
+ * shared with the rest of `iranCounties`, so every shape can be laid out with one transform.
+ */
 val ardabilCounties: List<CountyInfoModel> = listOf(
     CountyInfoModel(
         id = "Ardabil_1",

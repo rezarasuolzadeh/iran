@@ -2,6 +2,10 @@ package ir.rezarasuolzadeh.iran.constant.county
 
 import ir.rezarasuolzadeh.iran.model.info.CountyInfoModel
 
+/**
+ * The counties of Khorasan-e Jonubi province. Each `pathData` is a raw, unscaled SVG path string
+ * shared with the rest of `iranCounties`, so every shape can be laid out with one transform.
+ */
 val khorasaneJonubiCounties: List<CountyInfoModel> = listOf(
     CountyInfoModel(
         id = "KhorasaneJonubi_1",

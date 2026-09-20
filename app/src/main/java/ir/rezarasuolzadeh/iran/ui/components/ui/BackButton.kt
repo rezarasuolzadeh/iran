@@ -18,6 +18,11 @@ import androidx.compose.ui.unit.dp
 import ir.rezarasuolzadeh.iran.R
 import ir.rezarasuolzadeh.iran.ui.theme.White
 
+/**
+ * A small round floating button with a back arrow, meant to sit in the corner of a screen.
+ *
+ * @param onClick called when the button is tapped.
+ */
 @Composable
 fun BackButton(
     modifier: Modifier = Modifier,

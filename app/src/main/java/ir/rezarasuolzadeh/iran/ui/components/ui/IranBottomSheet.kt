@@ -24,6 +24,14 @@ import ir.rezarasuolzadeh.iran.R
 import ir.rezarasuolzadeh.iran.ui.theme.Typography
 import ir.rezarasuolzadeh.iran.ui.theme.White
 
+/**
+ * A sheet anchored to the bottom of the screen that shows the currently selected
+ * province's name (or a placeholder if none is picked yet), with a button to confirm it.
+ *
+ * @param provinceName the selected province's name, or `null` if nothing is selected.
+ * @param isConfirmEnabled whether the confirm button can be tapped.
+ * @param onConfirm called when the confirm button is tapped.
+ */
 @Composable
 fun IranBottomSheet(
     modifier: Modifier = Modifier,

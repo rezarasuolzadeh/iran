@@ -15,6 +15,14 @@ import ir.rezarasuolzadeh.iran.ui.theme.MediumBlue
 import ir.rezarasuolzadeh.iran.ui.theme.Typography
 import ir.rezarasuolzadeh.iran.ui.theme.White
 
+/**
+ * A full-width button with a solid fill, used for the primary action on a screen
+ * (e.g. "confirm"). For a secondary action, see [BorderButton].
+ *
+ * @param text the label shown on the button.
+ * @param enabled whether the button can be tapped; when `false` it's shown grayed out.
+ * @param onClick called when the button is tapped.
+ */
 @Composable
 fun FillButton(
     modifier: Modifier = Modifier,

@@ -2,6 +2,11 @@ package ir.rezarasuolzadeh.iran.constant.iran
 
 import ir.rezarasuolzadeh.iran.model.info.ProvinceInfoModel
 
+/**
+ * All 31 provinces of Iran. Each has a `pathData` outline (small-scale, for the whole-country
+ * map) and a `borderPathData` outline (large-scale, shared with county pathData) for zoomed
+ * per-province views — plus Lake Urumia as a non-selectable, county-less "province".
+ */
 val iranProvinces: List<ProvinceInfoModel> = listOf(
     ProvinceInfoModel(
         id = "Alborz",

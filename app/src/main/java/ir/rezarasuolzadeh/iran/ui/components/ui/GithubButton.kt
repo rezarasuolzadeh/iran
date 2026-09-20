@@ -18,6 +18,11 @@ import androidx.compose.ui.unit.dp
 import ir.rezarasuolzadeh.iran.R
 import ir.rezarasuolzadeh.iran.ui.theme.White
 
+/**
+ * A small round floating button with a GitHub icon, meant to sit in the corner of a screen.
+ *
+ * @param onClick called when the button is tapped.
+ */
 @Composable
 fun GithubButton(
     modifier: Modifier = Modifier,

@@ -2,6 +2,10 @@ package ir.rezarasuolzadeh.iran.constant.county
 
 import ir.rezarasuolzadeh.iran.model.info.CountyInfoModel
 
+/**
+ * The counties of Azerbaijan-e Sharghi province. Each `pathData` is a raw, unscaled SVG path string
+ * shared with the rest of `iranCounties`, so every shape can be laid out with one transform.
+ */
 val azerbaijaneSharghiCounties: List<CountyInfoModel> = listOf(
     CountyInfoModel(
         id = "AzerbaijaneSharghi_1",

@@ -26,10 +26,17 @@ import ir.rezarasuolzadeh.iran.R
 import ir.rezarasuolzadeh.iran.ui.theme.Typography
 import ir.rezarasuolzadeh.iran.ui.theme.White
 
+/**
+ * A sheet anchored to the bottom of the screen that shows the county seat's name for the
+ * county the user landed on, with a button to go back.
+ *
+ * @param countySeatName the name of the county's seat (its administrative center city).
+ * @param onBack called when the back button is tapped.
+ */
 @Composable
 fun CountyBottomSheet(
     modifier: Modifier = Modifier,
-    centerName: String,
+    countySeatName: String,
     onBack: () -> Unit
 ) {
     Card(
@@ -54,7 +61,7 @@ fun CountyBottomSheet(
             Spacer(modifier = Modifier.height(height = 8.dp))
             Text(
                 modifier = Modifier.fillMaxWidth(),
-                text = centerName,
+                text = countySeatName,
                 style = Typography.bodyLarge,
                 textAlign = TextAlign.Start
             )
@@ -72,7 +79,7 @@ fun CountyBottomSheet(
 fun CountyBottomSheetPreview() = CompositionLocalProvider(value = LocalLayoutDirection provides LayoutDirection.Rtl) {
     CountyBottomSheet(
         modifier = Modifier,
-        centerName = "برازجان",
+        countySeatName = "برازجان",
         onBack = {}
     )
 }

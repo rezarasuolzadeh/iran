@@ -23,6 +23,12 @@ import ir.rezarasuolzadeh.iran.ui.components.ui.IranBottomSheet
 import ir.rezarasuolzadeh.iran.utils.extensions.openGithubRepository
 import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
 
+/**
+ * The first step of the flow: shows a map of Iran so the user can pick a province.
+ *
+ * @param onProvinceConfirmed called with the chosen province's id once the user confirms it.
+ * @param onBackPressed called when the user backs out of this screen.
+ */
 @Composable
 fun IranScreen(
     onProvinceConfirmed: (provinceId: String) -> Unit,

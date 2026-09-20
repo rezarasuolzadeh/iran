@@ -22,6 +22,14 @@ import ir.rezarasuolzadeh.iran.R
 import ir.rezarasuolzadeh.iran.ui.theme.Typography
 import ir.rezarasuolzadeh.iran.ui.theme.White
 
+/**
+ * A confirmation dialog asking the user whether they really want to exit,
+ * with a "yes" and a "no" option.
+ *
+ * @param onConfirmClicked called when the user confirms they want to exit.
+ * @param onCancelClicked called when the user cancels, either by tapping "no"
+ * or by dismissing the dialog.
+ */
 @Composable
 fun ExitDialog(
     onConfirmClicked: () -> Unit,
