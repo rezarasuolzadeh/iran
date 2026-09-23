@@ -53,6 +53,6 @@ fun getCountyInfo(countyId: String): CountyInfoModel? {
 /**
  * Returns full info for every county, across all provinces.
  */
-fun getAllCountiesInfo(countyId: String): List<CountyInfoModel> {
+fun getAllCountiesInfo(): List<CountyInfoModel> {
     return iranCounties
 }
