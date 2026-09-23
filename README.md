@@ -57,9 +57,34 @@ selectedProvinceId = "Isfahan"
 ```kotlin
 defaultColor = Color(0xFFB0BEC5)
 ```
-
 چهارمین پارامتر selectedColor هست که رنگ استان انتخاب شده رو تعیین میکنه. توی کتابخونه یه رنگی براش در نظر گرفته شده به نام MapSelectedColor که میتونید ازش استفاده کنید یا رنگ مورد نظر خودتون رو بهش بدین. اگر مقدار دهی هم نشه، همون MapSelectedColor رو به صورت پیشفرض در نظر میگیره. (این پارامتر اجباری نیست و میتونید مقداردهی نکنید)
 ```kotlin
 selectedColor = Color(0xFF1E88E5)
+```
+پنجمن پارامتر waterColor هست که رنگ دریاچه ها رو تعیین میکنه (البته فعلا این رنگ رو صرفا میتونین رنگ دریاچه ارومیه لحاظ کنین). توی کتابخونه یه رنگی براش در نظر گرفته شده به نام MapWaterColor که میتونید ازش استفاده کنید یا رنگ مورد نظر خودتون رو بهش بدین. اگر مقدار دهی هم نشه، همون MapWaterColor رو به صورت پیشفرض در نظر میگیره. (این پارامتر اجباری نیست و میتونید مقداردهی نکنید)
+```kotlin
+waterColor = Color(0xFF90CAF9)
+```
+ششمین پارامتر borderColor هست که رنگ خطوط جدا کننده استان ها (یا همون مرز استان ها) رو تعیین میکنه. توی کتابخونه یه رنگی براش در نظر گرفته شده به نام MapInnerBorderColor که میتونید ازش استفاده کنید یا رنگ مورد نظر خودتون رو بهش بدین. اگر مقدار دهی هم نشه، همون MapInnerBorderColor رو به صورت پیشفرض در نظر میگیره. (این پارامتر اجباری نیست و میتونید مقداردهی نکنید)
+```kotlin
+borderColor = Color(0xFF37474F)
+```
+هفتمین پارامتر onProvinceIdSelected هست که ID استانی که توسط کاربر انتخاب شده رو برمیگردونه به شما. ID برگشتی هم از جنس ?String هستش که میتونه null هم باشه.
+```kotlin
+onProvinceIdSelected = { id ->
+    // you have access to the selected province ID here
+}
+```
+هشتمین پارامتر onProvinceNameSelected هست که نام فارسی استانی که توسط کاربر انتخاب شده رو برمیگردونه به شما. نام برگشتی هم از جنس ?String هستش که میتونه null هم باشه.
+```kotlin
+onProvinceNameSelected = { name ->
+    // you have access to the selected province Name here
+}
+```
+نهمین پارامتر onProvinceInfoSelected هست که اطلاعات جغرافیایی استانی که توسط کاربر انتخاب شده رو برمیگردونه به شما. اطلاعات برگشتی هم از جنس ?ProvinceInfoModel هستش که میتونه null هم باشه.
+```kotlin
+onProvinceInfoSelected = { info ->
+    // you have access to the selected province Info here
+}
 ```
 <br>&nbsp;<br>
