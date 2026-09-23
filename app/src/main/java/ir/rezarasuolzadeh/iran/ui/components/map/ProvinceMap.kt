@@ -185,7 +185,6 @@ fun ProvinceMap(
     selectedCountyId: String?,
     defaultColor: Color = MapDefaultColor,
     selectedColor: Color = MapSelectedColor,
-    waterColor: Color = MapWaterColor,
     innerBorderColor: Color = MapInnerBorderColor,
     outerBorderColor: Color = MapOuterBorderColor,
     onCountyIdSelected: (countyId: String?) -> Unit = {},
@@ -233,7 +232,6 @@ fun ProvinceMap(
 
         geoms.cityGeometries.forEach { geometry ->
             val fillColor = when {
-                !geometry.county.isSelectable -> waterColor
                 geometry.county.id == selectedCountyId -> selectedColor
                 else -> defaultColor
             }

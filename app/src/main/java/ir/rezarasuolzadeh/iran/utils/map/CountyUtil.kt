@@ -13,6 +13,15 @@ fun getCounties(provinceId: String): List<CountyInfoModel> {
 }
 
 /**
+ * Returns number of all counties that belong to the given province.
+ *
+ * @param provinceId the unique identifier of the parent province.
+ */
+fun getNumberOfCounties(provinceId: String): Int {
+    return iranCounties.filter { it.provinceId == provinceId }.size
+}
+
+/**
  * Returns the display name of a county, or `null` if [countyId] doesn't match any county.
  *
  * @param countyId the unique identifier of the county.
