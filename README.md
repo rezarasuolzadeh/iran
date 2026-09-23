@@ -23,7 +23,7 @@ dependencies {
 }
 ```
 <br>&nbsp;<br>
-## تابع نقشه ایران 
+## تابع نقشه‌ی ایران 
 <p align="center">
     <img alt="Iran Map" src="/images/iran_map.png"  width="400" height="400"> 
 </p>
@@ -89,7 +89,7 @@ onProvinceInfoSelected = { info ->
 ```
 <br>&nbsp;<br>
 <br>&nbsp;<br>
-## تابع نقشه استان 
+## تابع نقشه‌ی استان 
 <p align="center">
     <img alt="Iran Map" src="/images/province_map.png"  width="400" height="400"> 
 </p>
