@@ -28,7 +28,7 @@ dependencies {
     <img alt="Iran Map" src="/images/iran_map.png"  width="400" height="400"> 
 </p>
 
-با فراخوانی تابع زیر، شما میتونید خروجی بالا رو (که به صورت Dialog هست) تو هر جایی از کد compose تون که بخواین داشته باشین:
+با فراخوانی تابع زیر، شما میتونید خروجی بالا رو تو هر جایی از ui پروژه‌ی compose تون که بخواین داشته باشین:
 
 ```kotlin
 IranMap(
@@ -85,6 +85,81 @@ onProvinceNameSelected = { name ->
 ```kotlin
 onProvinceInfoSelected = { info ->
     // you have access to the selected province Info here
+}
+```
+<br>&nbsp;<br>
+<br>&nbsp;<br>
+## تابع نقشه استان 
+<p align="center">
+    <img alt="Iran Map" src="/images/province_map.png"  width="400" height="400"> 
+</p>
+
+با فراخوانی تابع زیر، شما میتونید خروجی بالا رو تو هر جایی از ui پروژه‌‌ی compose تون که بخواین داشته باشین:
+
+```kotlin
+ProvinceMap(
+    modifier = Modifier,
+    provinceId = "",
+    selectedCountyId = "",
+    selectedProvinceId = "",
+    defaultColor = MapDefaultColor,
+    selectedColor = MapSelectedColor,
+    innerBorderColor = MapInnerBorderColor,
+    outerBorderColor = MapOuterBorderColor,
+    onCountyIdSelected = {},
+    onCountyNameSelected = {},
+    onCountyInfoSelected = {}
+)
+```
+#### پارامترها
+اولین پارامتر modifier هست که شما با استفاده از اون میتونید تغییراتی که نیازه توی فاصله، چینش توی صفحه، اندازه و ... روی View انجام بدین. اما مهمترین چیزی که میتونید اینجا کنترلش کنید، اندازه نقشه هست که بسته به نوع UI اپلیکیشن خودتون، نقشه رو بزرگ یا کوچیک کنید که مثالش رو هم طیق کد پایین میتونید ببینین. (این پارامتر اجباری نیست و میتونید مقداردهی نکنید)
+```kotlin
+modifier = Modifier.size(300.dp)
+```
+دومین پارامتر provinceId هست که همون ID استانی هست که میخواین اون رو به کاربر نمایش بدین. این ID رو یا میتونین از تابع قبلی (IranMap) دریافت کنین یا این که با استفاده از توابعی که توی ادامه‌ی این مستند توضیح میدم به دست بیارین. این پارامتر حتما باید مقداردهی باشه وگرنه هیچ استانی به شما نمایش داده نمیشه! 
+```kotlin
+selectedCountyId = "Hormozgan_5"
+```
+سومین پارامتر selectedCountyId هست که همون ID شهرستان انتخاب شده توسط کاربر هست. این مقدار بعد از انتخاب شهرستان با لمس محدوده هر شهرستان در قسمت onCountyIdSelected قابل دریافت هستش یا با استفاده از توابعی که در انتهای این مستند گفته میشه میتونید به دستش بیارین. اگه این پارامتر مقداردهی نشه هیچ شهرستانی به صورت انتخاب شده نمایش داده نمیشه و با لمس هر شهرستان هم هیچ اتفاقی توی نقشه نمیوفته! 
+```kotlin
+selectedCountyId = "Hormozgan_5"
+```
+چهارمین پارامتر defaultColor هست که در واقع رنگ پیشفرض شهرستان هاست که تو حالت انتخاب شده قرار ندارن. توی کتابخونه یه رنگی براش در نظر گرفته شده به نام MapDefaultColor که میتونید ازش استفاده کنید یا رنگ مورد نظر خودتون رو بهش بدین. اگر مقدار دهی هم نشه، همون MapDefaultColor رو به صورت پیشفرض در نظر میگیره. (این پارامتر اجباری نیست و میتونید مقداردهی نکنید)
+```kotlin
+defaultColor = Color(0xFFB0BEC5)
+```
+پنجمین پارامتر selectedColor هست که رنگ شهرستان انتخاب شده رو تعیین میکنه. توی کتابخونه یه رنگی براش در نظر گرفته شده به نام MapSelectedColor که میتونید ازش استفاده کنید یا رنگ مورد نظر خودتون رو بهش بدین. اگر مقدار دهی هم نشه، همون MapSelectedColor رو به صورت پیشفرض در نظر میگیره. (این پارامتر اجباری نیست و میتونید مقداردهی نکنید)
+```kotlin
+selectedColor = Color(0xFF1E88E5)
+```
+ششمین پارامتر waterColor هست که رنگ دریاچه ها رو تعیین میکنه (البته فعلا این رنگ رو صرفا میتونین رنگ دریاچه ارومیه لحاظ کنین). توی کتابخونه یه رنگی براش در نظر گرفته شده به نام MapWaterColor که میتونید ازش استفاده کنید یا رنگ مورد نظر خودتون رو بهش بدین. اگر مقدار دهی هم نشه، همون MapWaterColor رو به صورت پیشفرض در نظر میگیره. (این پارامتر اجباری نیست و میتونید مقداردهی نکنید)
+```kotlin
+waterColor = Color(0xFF90CAF9)
+```
+هفتمین پارامتر innerBorderColor هست که رنگ خطوط جدا کننده شهرستان ها (یا همون مرز شهرستان ها) رو تعیین میکنه. توی کتابخونه یه رنگی براش در نظر گرفته شده به نام MapInnerBorderColor که میتونید ازش استفاده کنید یا رنگ مورد نظر خودتون رو بهش بدین. اگر مقدار دهی هم نشه، همون MapInnerBorderColor رو به صورت پیشفرض در نظر میگیره. (این پارامتر اجباری نیست و میتونید مقداردهی نکنید)
+```kotlin
+innerBorderColor = Color(0xFF37474F)
+```
+هشتمین پارامتر outerBorderColor هست که رنگ مرز استان (خط دور نقشه استان فعلی) رو تعیین میکنه. توی کتابخونه یه رنگی براش در نظر گرفته شده به نام MapOuterBorderColor که میتونید ازش استفاده کنید یا رنگ مورد نظر خودتون رو بهش بدین. اگر مقدار دهی هم نشه، همون MapOuterBorderColor رو به صورت پیشفرض در نظر میگیره. (این پارامتر اجباری نیست و میتونید مقداردهی نکنید)
+```kotlin
+outerBorderColor = Color(0xFF212121)
+```
+نهمین پارامتر onCountyIdSelected هست که ID شهرستانی که توسط کاربر انتخاب شده رو برمیگردونه به شما. ID برگشتی هم از جنس ?String هستش که میتونه null هم باشه.
+```kotlin
+onCountyIdSelected = { id ->
+    // you have access to the selected county ID here
+}
+```
+دهمین پارامتر onCountyNameSelected هست که نام فارسی شهرستانی که توسط کاربر انتخاب شده رو برمیگردونه به شما. نام برگشتی هم از جنس ?String هستش که میتونه null هم باشه.
+```kotlin
+onCountyNameSelected = { name ->
+    // you have access to the selected county Name here
+}
+```
+یازدهمین پارامتر onCountyInfoSelected هست که اطلاعات جغرافیایی شهرستانی که توسط کاربر انتخاب شده رو برمیگردونه به شما. اطلاعات برگشتی هم از جنس ?CountyInfoModel هستش که میتونه null هم باشه.
+```kotlin
+onCountyInfoSelected = { info ->
+    // you have access to the selected county Info here
 }
 ```
 <br>&nbsp;<br>
