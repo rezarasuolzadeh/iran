@@ -33,7 +33,7 @@ dependencies {
 ```kotlin
 IranMap(
     modifier = Modifier,
-    selectedProvinceId = "",
+    selectedProvinceId = "Isfahan",
     defaultColor = MapDefaultColor,
     selectedColor = MapSelectedColor,
     waterColor = MapWaterColor,
@@ -99,9 +99,8 @@ onProvinceInfoSelected = { info ->
 ```kotlin
 ProvinceMap(
     modifier = Modifier,
-    provinceId = "",
-    selectedCountyId = "",
-    selectedProvinceId = "",
+    provinceId = "Hormozgan",
+    selectedCountyId = "Hormozgan_5",
     defaultColor = MapDefaultColor,
     selectedColor = MapSelectedColor,
     innerBorderColor = MapInnerBorderColor,
@@ -163,3 +162,43 @@ onCountyInfoSelected = { info ->
 }
 ```
 <br>&nbsp;<br>
+<br>&nbsp;<br>
+## تابع نقشه‌ی شهرستان 
+<p align="center">
+    <img alt="Iran Map" src="/images/county_map.png"  width="400" height="400"> 
+</p>
+
+با فراخوانی تابع زیر، شما میتونید خروجی بالا رو تو هر جایی از ui پروژه‌‌ی compose تون که بخواین داشته باشین:
+
+```kotlin
+CountyMap(
+    modifier = Modifier,
+    provinceId = "KohgiluyehVaBoyerahmad",
+    countyId = "KohgiluyehVaBoyerahmad_8",
+    defaultColor = MapDefaultColor,
+    borderColor = MapOuterBorderColor
+)
+```
+#### پارامترها
+اولین پارامتر modifier هست که شما با استفاده از اون میتونید تغییراتی که نیازه توی فاصله، چینش توی صفحه، اندازه و ... روی View انجام بدین. اما مهمترین چیزی که میتونید اینجا کنترلش کنید، اندازه نقشه هست که بسته به نوع UI اپلیکیشن خودتون، نقشه رو بزرگ یا کوچیک کنید که مثالش رو هم طیق کد پایین میتونید ببینین. (این پارامتر اجباری نیست و میتونید مقداردهی نکنید)
+```kotlin
+modifier = Modifier.size(250.dp)
+```
+دومین پارامتر provinceId هست که همون ID استانی هست که شهرستان انتخابی شما توش قرار داره. این ID رو یا میتونین از تابع قبلی (IranMap) دریافت کنین یا این که با استفاده از توابعی که توی ادامه‌ی این مستند توضیح میدم به دست بیارین. این پارامتر حتما باید مقداردهی باشه وگرنه هیچ استانی به شما نمایش داده نمیشه! 
+```kotlin
+provinceId = "KohgiluyehVaBoyerahmad"
+```
+سومین پارامتر countyId هست که همون ID شهرستانی هست که میخواین اون رو به کاربر نمایش بدین. این ID رو یا میتونین از تابع قبلی (ProvinceMap) دریافت کنین یا این که با استفاده از توابعی که توی ادامه‌ی این مستند توضیح میدم به دست بیارین. این پارامتر حتما باید مقداردهی باشه وگرنه هیچ استانی به شما نمایش داده نمیشه! 
+```kotlin
+countyId = "KohgiluyehVaBoyerahmad_8"
+```
+چهارمین پارامتر defaultColor هست که در واقع رنگ شهرستان فعلی رو مشخص میکنه. توی کتابخونه یه رنگی براش در نظر گرفته شده به نام MapSelectedColor که میتونید ازش استفاده کنید یا رنگ مورد نظر خودتون رو بهش بدین. اگر مقدار دهی هم نشه، همون MapSelectedColor رو به صورت پیشفرض در نظر میگیره. (این پارامتر اجباری نیست و میتونید مقداردهی نکنید)
+```kotlin
+defaultColor = Color(0xFFB0BEC5)
+```
+پنجمین پارامتر borderColor هست که رنگ مرز شهرستان (خط دور نقشه شهرستان فعلی) رو تعیین میکنه. توی کتابخونه یه رنگی براش در نظر گرفته شده به نام MapOuterBorderColor که میتونید ازش استفاده کنید یا رنگ مورد نظر خودتون رو بهش بدین. اگر مقدار دهی هم نشه، همون MapOuterBorderColor رو به صورت پیشفرض در نظر میگیره. (این پارامتر اجباری نیست و میتونید مقداردهی نکنید)
+```kotlin
+borderColor = Color(0xFF212121)
+```
+<br>&nbsp;<br>
+
