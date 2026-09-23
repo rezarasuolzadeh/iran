@@ -201,4 +201,54 @@ defaultColor = Color(0xFFB0BEC5)
 borderColor = Color(0xFF212121)
 ```
 <br>&nbsp;<br>
+<br>&nbsp;<br>
+## توابع کمکی
 
+یه سری توابع هم هستن که به صورت کمکی عمل میکنن و اطلاعاتی که ممکنه شما بهش نیاز داشته باشین، حتی اگه نخواین از نقشه گرافیکی استفاده کنین، رو در اختیارتون میزارن. این توابع که توی توضیحات بالا هم دربارش صحبت کردم با توجه به عملکردشون به صورت زیر دسته بندی شدن:
+
+
+#### استان
+```kotlin
+getProvinceName(provinceId = "Qazvin")
+```
+
+
+```kotlin
+getProvinceInfo(provinceId = "SistanVaBaluchestan")
+```
+
+
+```kotlin
+getAllProvincessInfo()
+```
+
+#### شهرستان
+```kotlin
+getCounties(provinceId = "Fars")
+```
+
+
+```kotlin
+getNumberOfCounties(provinceId = "Khuzestan")
+```
+
+
+```kotlin
+getCountyName(countyId = "Semnan_3")
+```
+
+
+```kotlin
+getCountySeatName(countyId = "Ilam_8")
+```
+
+
+```kotlin
+getCountyInfo(countyId = "Yazd_1")
+```
+
+
+```kotlin
+getAllCountiesInfo()
+```
+<br>&nbsp;<br>
