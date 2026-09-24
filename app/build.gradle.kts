@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.compose)
     id("maven-publish")
 }
@@ -12,9 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "ir.rezarasuolzadeh.iran"
         minSdk = 24
-        targetSdk = 37
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
