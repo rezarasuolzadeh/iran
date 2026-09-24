@@ -207,47 +207,81 @@ borderColor = Color(0xFF212121)
 یه سری توابع هم هستن که به صورت کمکی عمل میکنن و اطلاعاتی که ممکنه شما بهش نیاز داشته باشین، حتی اگه نخواین از نقشه گرافیکی استفاده کنین، رو در اختیارتون میزارن. این توابع که توی توضیحات بالا هم دربارش صحبت کردم با توجه به عملکردشون به صورت زیر دسته بندی شدن:
 
 
-#### استان
+#### نام استان
+ورودی -> ID استان (String)
+
+خروجی -> نام فارسی استان (?String)
 ```kotlin
 getProvinceName(provinceId = "Qazvin")
 ```
 
 
+#### اطلاعات استان
+ورودی -> ID استان (String)
+
+خروجی -> اطلاعات استان (?ProvinceInfoModel)
 ```kotlin
 getProvinceInfo(provinceId = "SistanVaBaluchestan")
 ```
 
 
+#### اطلاعات همه استان ها
+ورودی -> نداره
+
+خروجی -> لیست اطلاعات همه استان ها (<List<ProvinceInfoModel) 
 ```kotlin
 getAllProvincessInfo()
 ```
 
-#### شهرستان
+#### اطلاعات شهرستان های استان
+ورودی -> ID استان (String)
+
+خروجی -> لیست اطلاعات شهرستان های استان (<List<CountyInfoModel)
 ```kotlin
 getCounties(provinceId = "Fars")
 ```
 
 
+#### تعداد شهرستان های استان
+ورودی -> ID استان (String)
+
+خروجی -> تعداد شهرستان های استان (Int)
 ```kotlin
 getNumberOfCounties(provinceId = "Khuzestan")
 ```
 
 
+#### نام شهرستان
+ورودی -> ID شهرستان (String)
+
+خروجی -> نام فارسی شهرستان (?String)
 ```kotlin
 getCountyName(countyId = "Semnan_3")
 ```
 
 
+#### نام مرکز شهرستان
+ورودی -> ID شهرستان (String)
+
+خروجی -> نام فارسی مرکز شهرستان (?String)
 ```kotlin
 getCountySeatName(countyId = "Ilam_8")
 ```
 
 
+#### اطلاعات شهرستان
+ورودی -> ID شهرستان (String)
+
+خروجی -> اطلاعات شهرستان (?CountyInfoModel)
 ```kotlin
 getCountyInfo(countyId = "Yazd_1")
 ```
 
 
+#### اطلاعات همه شهرستان ها
+ورودی -> نداره
+
+خروجی -> لیست اطلاعات همه شهرستان های کشور (<List<CountyInfoModel)
 ```kotlin
 getAllCountiesInfo()
 ```
