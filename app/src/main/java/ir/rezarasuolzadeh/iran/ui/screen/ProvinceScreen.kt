@@ -35,7 +35,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
  * @param onBackPressed called when the user backs out of this screen.
  */
 @Composable
-fun ProvinceScreen(
+internal fun ProvinceScreen(
     provinceId: String,
     onCountyConfirmed: (countyId: String) -> Unit,
     onBackPressed: () -> Unit
@@ -95,7 +95,7 @@ fun ProvinceScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun ProvinceScreenPreview() {
+internal fun ProvinceScreenPreview() {
     ProvinceScreen(
         provinceId = "Qazvin",
         onCountyConfirmed = {},

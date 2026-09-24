@@ -34,7 +34,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.White
  * @param onBack called when the back button is tapped.
  */
 @Composable
-fun CountyBottomSheet(
+internal fun CountyBottomSheet(
     modifier: Modifier = Modifier,
     countySeatName: String,
     onBack: () -> Unit
@@ -76,7 +76,7 @@ fun CountyBottomSheet(
 
 @Preview
 @Composable
-fun CountyBottomSheetPreview() = CompositionLocalProvider(value = LocalLayoutDirection provides LayoutDirection.Rtl) {
+internal fun CountyBottomSheetPreview() = CompositionLocalProvider(value = LocalLayoutDirection provides LayoutDirection.Rtl) {
     CountyBottomSheet(
         modifier = Modifier,
         countySeatName = "برازجان",

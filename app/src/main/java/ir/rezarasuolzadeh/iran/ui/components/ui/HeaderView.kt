@@ -20,7 +20,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.Typography
  * @param description a short line of supporting text shown under the title.
  */
 @Composable
-fun HeaderView(
+internal fun HeaderView(
     modifier: Modifier = Modifier,
     title: String,
     description: String
@@ -43,7 +43,7 @@ fun HeaderView(
 
 @Preview
 @Composable
-fun HeaderViewPreview() {
+internal fun HeaderViewPreview() {
     HeaderView(
         modifier = Modifier,
         title = "عنوان",

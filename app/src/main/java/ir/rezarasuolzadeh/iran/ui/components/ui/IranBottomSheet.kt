@@ -33,7 +33,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.White
  * @param onConfirm called when the confirm button is tapped.
  */
 @Composable
-fun IranBottomSheet(
+internal fun IranBottomSheet(
     modifier: Modifier = Modifier,
     provinceName: String?,
     isConfirmEnabled: Boolean,
@@ -77,7 +77,7 @@ fun IranBottomSheet(
 
 @Preview
 @Composable
-fun IranBottomSheetPreview() {
+internal fun IranBottomSheetPreview() {
     CompositionLocalProvider(value = LocalLayoutDirection provides LayoutDirection.Rtl) {
         IranBottomSheet(
             modifier = Modifier,

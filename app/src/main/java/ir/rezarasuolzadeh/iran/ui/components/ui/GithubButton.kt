@@ -24,7 +24,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.White
  * @param onClick called when the button is tapped.
  */
 @Composable
-fun GithubButton(
+internal fun GithubButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
@@ -55,7 +55,7 @@ fun GithubButton(
 
 @Preview
 @Composable
-fun GithubButtonPreview() {
+internal fun GithubButtonPreview() {
     GithubButton(
         modifier = Modifier,
         onClick = {}

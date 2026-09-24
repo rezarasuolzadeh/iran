@@ -30,7 +30,7 @@ import ir.rezarasuolzadeh.iran.utils.map.getCountySeatName
  * @param onBackPressed called when the user backs out of this screen.
  */
 @Composable
-fun CountyScreen(
+internal fun CountyScreen(
     provinceId: String,
     countyId: String,
     onBackPressed: () -> Unit
@@ -78,7 +78,7 @@ fun CountyScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun CountyScreenPreview() {
+internal fun CountyScreenPreview() {
     CountyScreen(
         provinceId = "Qazvin",
         countyId = "Qazvin_1",

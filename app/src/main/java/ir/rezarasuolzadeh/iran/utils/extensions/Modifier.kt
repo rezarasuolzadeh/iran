@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
  *
  * @param provinceId the unique identifier of the province being displayed.
  */
-fun Modifier.calculateSizeAccordingToProvince(provinceId: String): Modifier = run {
+internal fun Modifier.calculateSizeAccordingToProvince(provinceId: String): Modifier = run {
     return@run when (provinceId) {
         "SistanVaBaluchestan" -> Modifier.size(300.dp)
         "AzerbaijaneGharbi" -> Modifier.size(300.dp)

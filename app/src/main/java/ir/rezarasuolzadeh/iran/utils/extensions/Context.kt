@@ -8,7 +8,7 @@ import ir.rezarasuolzadeh.iran.constant.Constants
 /**
  * Opens the project's GitHub repository in the user's browser.
  */
-fun Context.openGithubRepository() {
+internal fun Context.openGithubRepository() {
     val intent = Intent(Intent.ACTION_VIEW, Constants.GITHUB_URL.toUri())
     startActivity(intent)
 }

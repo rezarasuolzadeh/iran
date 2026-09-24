@@ -1,16 +1,16 @@
 package ir.rezarasuolzadeh.iran.constant
 
-object Constants {
+internal object Constants {
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                         String                                             //
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    const val GITHUB_URL = "https://github.com/rezarasuolzadeh/iran"
+    internal const val GITHUB_URL = "https://github.com/rezarasuolzadeh/iran"
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     //                                          Float                                             //
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    const val IRAN_MAP_VIEW_BOX_MIN_X = 5.138f
-    const val IRAN_MAP_VIEW_BOX_MIN_Y = 16.445f
-    const val IRAN_MAP_VIEW_BOX_WIDTH = 590.138f
-    const val IRAN_MAP_VIEW_BOX_HEIGHT = 531f
+    internal const val IRAN_MAP_VIEW_BOX_MIN_X = 5.138f
+    internal const val IRAN_MAP_VIEW_BOX_MIN_Y = 16.445f
+    internal const val IRAN_MAP_VIEW_BOX_WIDTH = 590.138f
+    internal const val IRAN_MAP_VIEW_BOX_HEIGHT = 531f
 }

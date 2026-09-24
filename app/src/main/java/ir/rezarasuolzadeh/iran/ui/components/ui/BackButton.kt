@@ -24,7 +24,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.White
  * @param onClick called when the button is tapped.
  */
 @Composable
-fun BackButton(
+internal fun BackButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
@@ -55,7 +55,7 @@ fun BackButton(
 
 @Preview
 @Composable
-fun BackButtonPreview() {
+internal fun BackButtonPreview() {
     BackButton(
         modifier = Modifier,
         onClick = {}

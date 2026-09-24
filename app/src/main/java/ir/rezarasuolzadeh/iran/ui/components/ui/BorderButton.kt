@@ -25,7 +25,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.White
  * @param onClick called when the button is tapped.
  */
 @Composable
-fun BorderButton(
+internal fun BorderButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean = true,
@@ -58,7 +58,7 @@ fun BorderButton(
 
 @Preview
 @Composable
-fun BorderButtonPreview() {
+internal fun BorderButtonPreview() {
     BorderButton(
         modifier = Modifier,
         text = "انصراف",

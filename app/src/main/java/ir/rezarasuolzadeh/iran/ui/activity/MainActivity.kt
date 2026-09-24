@@ -17,7 +17,7 @@ import ir.rezarasuolzadeh.iran.ui.screen.IranScreen
 import ir.rezarasuolzadeh.iran.ui.screen.ProvinceScreen
 import ir.rezarasuolzadeh.iran.ui.theme.IranTheme
 
-class MainActivity : ComponentActivity() {
+internal class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

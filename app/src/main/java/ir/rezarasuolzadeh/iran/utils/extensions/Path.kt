@@ -8,7 +8,7 @@ import android.graphics.Region
  * Converts this path into a [Region], so it can be used for hit-testing —
  * for example, to check whether a tap or click falls inside the shape.
  */
-fun Path.toHitRegion(): Region {
+internal fun Path.toHitRegion(): Region {
     val bounds = RectF()
     computeBounds(bounds, true)
     return Region().apply {

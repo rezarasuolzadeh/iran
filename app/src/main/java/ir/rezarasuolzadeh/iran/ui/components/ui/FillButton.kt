@@ -24,7 +24,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.White
  * @param onClick called when the button is tapped.
  */
 @Composable
-fun FillButton(
+internal fun FillButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean = true,
@@ -53,7 +53,7 @@ fun FillButton(
 
 @Preview
 @Composable
-fun FillButtonPreview() {
+internal fun FillButtonPreview() {
     FillButton(
         modifier = Modifier,
         text = "تایید",

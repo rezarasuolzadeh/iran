@@ -31,7 +31,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.White
  * or by dismissing the dialog.
  */
 @Composable
-fun ExitDialog(
+internal fun ExitDialog(
     onConfirmClicked: () -> Unit,
     onCancelClicked: () -> Unit
 ) {
@@ -82,7 +82,7 @@ fun ExitDialog(
 
 @Preview
 @Composable
-fun ExitDialogPreview() {
+internal fun ExitDialogPreview() {
     ExitDialog(
         onConfirmClicked = {},
         onCancelClicked = {}

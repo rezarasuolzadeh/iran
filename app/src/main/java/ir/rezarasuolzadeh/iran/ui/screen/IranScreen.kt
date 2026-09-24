@@ -30,7 +30,7 @@ import ir.rezarasuolzadeh.iran.ui.theme.LightBlue
  * @param onBackPressed called when the user backs out of this screen.
  */
 @Composable
-fun IranScreen(
+internal fun IranScreen(
     onProvinceConfirmed: (provinceId: String) -> Unit,
     onBackPressed: () -> Unit
 ) {
@@ -84,7 +84,7 @@ fun IranScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun IranScreenPreview() {
+internal fun IranScreenPreview() {
     IranScreen(
         onProvinceConfirmed = {},
         onBackPressed = {}
