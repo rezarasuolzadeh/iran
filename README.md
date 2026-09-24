@@ -1,4 +1,6 @@
 [![](https://jitpack.io/v/rezarasuolzadeh/iran.svg)](https://jitpack.io/#rezarasuolzadeh/iran)
+![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)
+![Compose](https://img.shields.io/badge/Jetpack%20Compose-4285F4?logo=jetpackcompose&logoColor=white)
 
 ### درباره کتابخونه
 این کتابخونه رو برای این توسعه دادم که استفاده از اِلِمان های نقشه ایران تا جزئی ترین بخش ممکن، با یک UI خوب و راحت برای کاربر توی اپلیکیشن های اندروید فراهم بشه. تا جایی که ممکن بوده برام اطلاعات نقشه رو بر حسب اطلاعاتی که وجود داشته توی سایت های مختلف، پیاده سازی کردم و برخی موارد هم اصلاح شدن تا قابل اتکا و درست باشن برای استفاده برنامه نویسا. این کتابخونه رو با Compose پیاده‌سازی کردم که هم به روز تر باشه و هم استفاده ازش راحت تر.
@@ -286,3 +288,8 @@ getCountyInfo(countyId = "Yazd_1")
 getAllCountiesInfo()
 ```
 <br>&nbsp;<br>
+
+
+<div align="center">
+ساخته شده با ❤️ برای جامعه‌ی توسعه‌دهندگان اندروید ایران
+</div>
