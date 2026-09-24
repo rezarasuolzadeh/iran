@@ -1,22 +1,24 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    id("maven-publish")
 }
 
 android {
     namespace = "ir.rezarasuolzadeh.iran"
+
     compileSdk {
-        version = release(37)
+        version = release(version = 37)
     }
 
     defaultConfig {
         applicationId = "ir.rezarasuolzadeh.iran"
         minSdk = 24
         targetSdk = 37
-        versionCode = 1
-        versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -26,12 +28,31 @@ android {
             }
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     buildFeatures {
         compose = true
+    }
+
+    publishing {
+        singleVariant(variantName = "release")
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>(name = "release") {
+            groupId = "com.github.rezarasuolzadeh"
+            artifactId = "iran"
+            version = "1.0.0"
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
     }
 }
 
