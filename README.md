@@ -184,7 +184,7 @@ CountyMap(
     modifier = Modifier,
     provinceId = "KohgiluyehVaBoyerahmad",
     countyId = "KohgiluyehVaBoyerahmad_8",
-    defaultColor = MapDefaultColor,
+    defaultColor = MapSelectedColor,
     borderColor = MapOuterBorderColor
 )
 ```
