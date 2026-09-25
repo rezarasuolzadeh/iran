@@ -6,7 +6,7 @@
 این کتابخونه رو برای این توسعه دادم که استفاده از اِلِمان های نقشه ایران تا جزئی ترین بخش ممکن، با یک UI خوب و راحت برای کاربر توی اپلیکیشن های اندروید فراهم بشه. تا جایی که ممکن بوده برام اطلاعات نقشه رو بر حسب اطلاعاتی که وجود داشته توی سایت های مختلف، پیاده سازی کردم و برخی موارد هم اصلاح شدن تا قابل اتکا و درست باشن برای استفاده برنامه نویسا. این کتابخونه رو با Compose پیاده‌سازی کردم که هم به روز تر باشه و هم استفاده ازش راحت تر. اگه خواستین یه نگاه کلی به ویژگی های کتابخونه بندازین بدون اینکه به پروژتون اضافش کنین، میتونین از همینجا اپلیکیشن دمو رو که با استفاده از همین کتابخونه ساختمش، دانلود و بررسیش کنین:
 <br>&nbsp;<br>
 <p align="center">
-    <a href="https://github.com/rezarasuolzadeh/iran/releases/download/1.0.0/iran.1.0.0.apk">
+    <a href="https://github.com/rezarasuolzadeh/iran/releases/download/1.0.1/iran.1.0.1.apk">
         <img alt="Github" src="/images/github.png" width="180" height="55">
     </a>
 </p>
@@ -28,7 +28,7 @@ dependencyResolutionManagement {
 
 ```kotlin
 dependencies {
-    implementation("com.github.rezarasuolzadeh:iran:1.0.0")
+    implementation("com.github.rezarasuolzadeh:iran:1.0.1")
 }
 ```
 <br>&nbsp;<br>
